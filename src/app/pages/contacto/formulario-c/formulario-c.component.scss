@@ -1,0 +1,36 @@
+.checkBox {
+    display: block;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #6d7991;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkBox div {
+    width: 60px;
+    height: 60px;
+    background-color: #6d7991;
+    top: -52px;
+    left: -52px;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+}
+
+.checkBox input[type=radio]:checked + div {
+    left: -10px;
+    top: -10px;
+}
+
+.checkBox input[type=radio] {
+    position: absolute;
+    left: 50px;
+    visibility: hidden;
+}
+
+.transition {
+    transition: 500ms ease;
+}

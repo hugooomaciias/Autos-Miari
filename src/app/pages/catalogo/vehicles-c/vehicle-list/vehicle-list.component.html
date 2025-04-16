@@ -1,0 +1,51 @@
+<div class="bg-white w-full mb-4 rounded-xl shadow-md overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
+    <div class="flex flex-col lg:flex-row">
+      
+        <!-- Imagen del vehículo -->
+        <div class="lg:w-1/3 w-full relative h-56 lg:h-auto">
+            <img class="object-cover w-full h-full" [src]="vehicle.image" [alt]="vehicle.name"/>
+
+            <button class="absolute top-4 right-4 bg-transparent border-none text-white cursor-pointer hover:scale-110 transition-transform duration-200"
+                (click)="onToggleFavorite(vehicle.id)"
+            >
+                <app-favorite-icon [active]="favorite"></app-favorite-icon>
+            </button>
+
+            <span *ngIf="vehicle.isNew" class="absolute top-4 left-4 bg-gradient-to-r from-black to-gray-800 text-white font-semibold px-2 py-1 rounded-full text-xs">New</span
+            >
+        </div>
+    
+        <!-- Info del vehículo -->
+        <div class="px-6 pt-2 pb-4 flex-1">
+            <div class="mb-3 flex justify-between items-start flex-wrap">
+                <h3 class="font-semibold text-lg">{{ vehicle.name }}</h3>
+                <p class="font-bold text-lg whitespace-nowrap">{{ vehicle.price }} €</p>
+            </div>
+    
+            <div class="flex items-center text-muted-foreground mb-4 text-sm flex-wrap gap-2">
+                <span>{{ vehicle.year }}</span>
+                <span>•</span>
+                <span>{{ vehicle.type }}</span>
+                <span>•</span>
+                <span>{{ vehicle.fuel }}</span>
+                <span>•</span>
+                <span>{{ vehicle.color }}</span>
+            </div>
+    
+            <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                <div>
+                    <p class="text-muted-foreground">Kilometraje</p>
+                    <p class="font-medium">{{ vehicle.mileage }} km</p>
+                </div>
+    
+                <div>
+                    <p class="text-muted-foreground">Transmisión</p>
+                    <p class="font-medium">{{ vehicle.transmission }}</p>
+                </div>
+            </div>
+    
+            <!-- Botones de acción -->
+            <app-boton2 class="w-1/3" (click)="openModal()">Ver detalles</app-boton2>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container mx-auto px-4 mb-16 md:mb-28">
+    <div class="text-center mb-8 md:14">
+        <h2 class="text-3xl font-bold mb-4">Conoce a nuestro fundador</h2>
+        <p class="text-lg md:text-lg mx-auto mb-8 max-w-3xl opacity-80">
+            La visión, la experiencia y la pasión que respaldan el compromiso de Autos Miari con la excelencia.
+        </p>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-8 md:gap-12 items-start max-w-5xl mx-auto">
+        <div class="lg:w-2/5">
+            <div class="aspect-square overflow-hidden rounded-xl shadow-lg">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jose Luis" 
+                     class="w-full h-full object-cover"
+                />
+            </div>
+        </div>
+        
+        <div class="lg:w-3/5">
+            <h3 class="text-2xl font-bold mb-2 mt-0">Jose Luis</h3>
+            <p class="text-black font-medium mb-4">Fundador & CEO</p>
+            <p class="opacity-80 mb-6 text-base">
+                Con más de 10 años en la industria del automóvil, Joselu fundó Autos Miari con la visión de redefinir 
+                la experiencia de compra de coches. Su pasión por un servicio al cliente excepcional y su profundo conocimiento 
+                de los vehículos de alta gama han convertido a Autos Miari en el principal destino para los entusiastas de los coches más exigentes.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div *ngFor="let logro of logros">
+                    <div class="flex items-start bg-white rounded-lg max-w-sm px-6 pt-4 pb-2 gap-3 border border-border/40 shadow-sm hover:shadow-lg hover:bg-white/50 transition-all duration-300">
+                        <div class="flex items-center">
+                            <ng-container *ngComponentOutlet="logro.icon"></ng-container>
+                        </div>
+        
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-semibold my-0">{{logro.title}}</h3>
+                            <p class="text-sm opacity-60">{{logro.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2 bg-[#6d7991] px-3 py-2 rounded-full text-white w-fit cursor-pointer hover:bg-[#5b6578]">
+                <app-mail-icon currentClass="size-5"></app-mail-icon>
+                Mail
+            </div>
+        </div>
+    </div>
+</div>

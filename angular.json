@@ -34,6 +34,12 @@
             "styles": [
               "src/styles.scss"
             ],
+            "optimization": {
+              "styles": {
+                "minify": false,
+                "inlineCritical": false
+              }
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "outputMode": "server",
@@ -75,7 +81,12 @@
               "buildTarget": "Autos_Miari:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "host": "0.0.0.0",
+            "port": 4200,
+            "disableHostCheck": true
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
@@ -103,5 +114,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "fa81251a-6a55-4f94-a3f4-ef883dfe306f"
   }
 }

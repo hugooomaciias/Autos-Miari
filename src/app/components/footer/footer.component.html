@@ -1,0 +1,79 @@
+<footer class="absolute left-0 w-full bg-black/80 text-white mt-28">
+    <div class="container mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:justify-items-center md:items-start">
+            <div>
+                <div class="flex items-center gap-2 mb-6 cursor-pointer" (click)="navigateTo('home')">
+                    <img class="w-16" src="Logo_Autos_Miari_White.png" alt="Logo de Autos Miari">
+                    <span class="font-bold text-xl tracking-tight">Autos Miari</span>
+                </div>
+
+                <p class="mb-6 opacity-80 max-w-xs">
+                    Proporcionando vehículos de primera calidad desde 2024. Su socio de confianza para comprar, vender y alquilar vehículos.
+                </p>
+
+                <div class="flex gap-3">
+                    <div *ngFor="let socialNetwork of socialNetworks">
+                        <a href={{socialNetwork.link}} class="flex items-center justify-center py-1 bg-transparent text-white/70 hover:text-white/100 cursor-pointer"
+                            target="_blank" rel="noopener noreferrer">
+                            <ng-container *ngComponentOutlet="socialNetwork.icon"></ng-container>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-xl mb-4">Enlaces rápidos</h3>
+                <a *ngFor="let link of quickLinks" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
+                        class="relative block pb-4 transition hover:text-[#ff0030] cursor-pointer">
+                    {{link.title}}
+                </a>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Sobre nosotros</h3>
+                <a *ngFor="let link of aboutUs" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
+                    class="relative block pb-4 transition hover:text-[#ff0030] cursor-pointer">
+                    {{link.title}}
+                </a>
+            </div>
+            
+            <div>
+                <h3 class="font-semibold text-lg mb-4">Contacta con nosotros</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <app-location-icon></app-location-icon>
+                        <span>
+                            Calle Estional, 72<br />
+                            04712 El Ejido Almería<br />
+                            España
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <app-phone-icon></app-phone-icon>
+                        <span>676 15 34 97</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <app-mail-icon></app-mail-icon>
+                        <span>info&#64;autosmiari.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="container mx-auto mt-20">
+            <div class="w-full h-px mb-8 bg-white/70 rounded-full"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="opacity-70 text-sm">
+                    &copy; 2025 Autos Miari. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6 text-center mt-4 md:mt-0">
+                    <a *ngFor="let link of policyLinks" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
+                        class="relative block pb-4 transition hover:text-[#ff0030] cursor-pointer">
+                        {{link.title}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

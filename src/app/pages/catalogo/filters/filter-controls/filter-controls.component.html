@@ -1,0 +1,60 @@
+<!-- Filtro por precio -->
+<div class="mb-4">
+    <div for="brand" class="flex items-center gap-2 text-lg font-medium">
+        <app-euro-bag-icon></app-euro-bag-icon>
+        Precio
+    </div>
+
+    <input type="range" min="0" max="200000" step="1000" [(ngModel)]="filters.price[1]" (change)="onFilterChange(); irAPagina(1)" />
+    <div class="flex justify-between text-sm text-gray-500 mt-1">
+        <span>0 €</span>
+        <span>{{ filters.price[1] | number:'1.0-0' }} €</span>
+    </div>
+</div>
+
+<!-- Filtro por kilometraje -->
+<div class="mb-4">
+    <div for="brand" class="flex items-center gap-2 text-lg font-medium">
+        <app-km-icon></app-km-icon>
+        Kilometraje
+    </div>
+
+    <input type="range" min="0" max="800000" step="1000" [(ngModel)]="filters.mileage[1]" (change)="onFilterChange(); irAPagina(1)" />
+    <div class="flex justify-between text-sm text-gray-500 mt-1">
+        <span>0 km</span>
+        <span>{{ filters.mileage[1] | number:'1.0-0' }} km</span>
+    </div>
+</div>
+
+<!-- Resto de filtros -->
+<ng-container *ngFor="let filter of filterGroups">
+    <div class="border-t pt-4">
+        <div class="flex justify-between items-center cursor-pointer" (click)="toggle(filter.key)">
+            <div class="flex items-center gap-2 text-lg font-medium">
+                <ng-container *ngComponentOutlet="filter.icon"></ng-container>
+                {{ filter.label }}
+            </div>
+
+            <ng-container *ngIf="expanded[filter.key]; else collapsedIcon">
+                <app-chevrom-down-icon></app-chevrom-down-icon>
+            </ng-container>
+
+            <ng-template #collapsedIcon>
+                <app-chevrom-right-icon></app-chevrom-right-icon>
+            </ng-template>
+        </div>
+  
+        <div *ngIf="expanded[filter.key]" class="mt-2">
+            <div *ngFor="let option of filter.options" class="mb-2 ml-0.5">
+                <div class="flex items-center gap-3 space-y-3">
+                    <label class="checkBox">
+                        <input type="checkbox" value={{option}} [checked]="filters[filter.key]?.includes(option)" (change)="onCheckboxChange(filter.key, option, $event); irAPagina(1)">
+                        <div class="transition"></div>
+                    </label>
+                    {{ option }}
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-0.5 bg-black opacity-20 mt-5"></div>
+    </div>
+</ng-container>

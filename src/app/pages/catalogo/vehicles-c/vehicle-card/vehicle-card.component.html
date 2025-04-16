@@ -1,0 +1,40 @@
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
+    <div class="relative">
+        <img class="w-full h-56 object-cover" [src]="vehicle.image" [alt]="vehicle.name"/>
+        
+        <button class="absolute top-4 right-4 bg-transparent border-none text-white cursor-pointer hover:scale-110 transition-transform duration-200"
+                (click)="onToggleFavorite(vehicle.id)"
+        >
+            <app-favorite-icon [active]="favorite"></app-favorite-icon>
+        </button>
+        
+        <span *ngIf="vehicle.isNew" class="absolute top-4 left-4 bg-[#6d7991] text-white font-semibold px-2 py-1 rounded-full text-xs">New</span>
+    </div>
+
+    <div class="px-6 pt-2 pb-4">
+        <div class="mb-3 flex justify-between items-start">
+            <h3 class="font-semibold text-lg">{{ vehicle.name }}</h3>
+            <p class="font-bold text-lg">{{ vehicle.price }} €</p>
+        </div>
+
+        <div class="flex items-center text-muted-foreground mb-4">
+            <span class="text-sm">{{ vehicle.year }}</span>
+            <span class="mx-2">•</span>
+            <span class="text-sm">{{ vehicle.type }}</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mb-5">
+            <div class="text-sm">
+                <p class="text-muted-foreground">Kilometraje</p>
+                <p class="font-medium">{{ vehicle.mileage }} km</p>
+            </div>
+
+            <div class="text-sm">
+                <p class="text-muted-foreground">Transmisión</p>
+                <p class="font-medium">{{ vehicle.transmission }}</p>
+            </div>
+        </div>
+
+        <app-boton2 class="w-4/6 mx-auto" (click)="openModal()">Ver detalles</app-boton2>
+    </div>
+</div>

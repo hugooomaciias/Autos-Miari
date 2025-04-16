@@ -1,0 +1,43 @@
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+    <div>
+        <h2 class="text-2xl font-bold mt-0 mb-2">Vehículos</h2>
+        <p class="opacity-80 my-0">
+            {{filteredVehicles.length}} {{filteredVehicles.length === 1 ? 'vehículo encontrado' : 'vehículos encontrados'}}
+        </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <div class="flex p-1 gap-2">
+            <button aria-label="Grid view" class="p-2 rounded-md border-none cursor-pointer" (click)="setViewType('grid')"
+                    [ngClass]="{
+                        'text-white bg-[#ff3131] hover:bg-[#c80d0d]': viewType === 'grid',
+                        'bg-white/50 hover:bg-white': viewType !== 'grid'
+                    }"
+            >
+                <app-grid-icon></app-grid-icon>
+            </button>
+
+            <button aria-label="List view" class="p-2 rounded-md border-none cursor-pointer" (click)="setViewType('list')"
+                    [ngClass]="{
+                        'text-white bg-[#ff3131] hover:bg-[#c80d0d]': viewType === 'list',
+                        'bg-white/50 hover:bg-white': viewType !== 'list'
+                    }"
+            >
+                <app-list-icon></app-list-icon>
+            </button>
+        </div>
+
+        <div class="relative w-full max-w-xs">
+            <select class="appearance-none bg-white/50 hover:bg-white rounded-md border-none px-3 py-2.5 text-base cursor-pointer">
+                <option value="featured">Destacados</option>
+                <option value="price-low">Precio (más bajo primero)</option>
+                <option value="price-high">Precio (más alto primero)</option>
+                <option value="newest">Nuevos primero</option>
+            </select>
+            
+            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                <app-chevrom-down-icon></app-chevrom-down-icon>
+            </div>
+        </div>
+    </div>
+</div>

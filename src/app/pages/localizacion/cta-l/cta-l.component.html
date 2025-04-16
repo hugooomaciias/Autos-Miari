@@ -1,0 +1,21 @@
+<section class="container mx-auto py-5 z-20 bg-white rounded-xl shadow-xl">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold text-center mb-6">¿Listo para disfrutar de tu próximo coche con total confianza?</h2>
+        <p class="text-lg opacity-80 mb-8 max-w-xs md:max-w-3xl mx-auto">
+            Programa una visita personal a nuestra sala de exposición y
+            pruebe el coche de sus sueños hoy mismo. Nuestro equipo está listo para ayudarle con cualquier pregunta.
+        </p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center mx-auto mt-8 gap-5 w-2/3">
+            <app-boton2 class="w-full">
+                <app-phone-icon></app-phone-icon>
+                Haznos una llamada
+            </app-boton2>                        
+            <app-boton3 class="w-full px-4 py-3" (click)="navigateTo('concertar-cita')">
+                <app-visit-icon></app-visit-icon>
+                Concertar una visita
+            </app-boton3>
+        </div>
+    </div>
+</section>
+  

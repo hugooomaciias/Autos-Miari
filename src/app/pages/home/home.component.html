@@ -1,0 +1,7 @@
+<app-header-h></app-header-h>
+<app-hero-h></app-hero-h>
+<app-search></app-search>
+<app-destacados [favorites]="favorites" [totalSlides]="totalSlides" [currentSlide]="currentSlide"
+                (toggleFavorite)="onToggleFavorite($event)" (slideChange)="onSlideChange($event)">
+</app-destacados>
+<app-servicios></app-servicios>

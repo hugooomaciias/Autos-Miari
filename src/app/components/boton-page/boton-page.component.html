@@ -1,0 +1,7 @@
+<Button class="size-8 p-2 rounded-md border-none bg-white/50 hover:bg-white cursor-pointer"
+        [ngClass]="{
+            'text-white bg-[#ff3131] hover:bg-[#c80d0d]': active,
+            'bg-white/50 hover:bg-white': ! active
+        }">
+    <ng-content></ng-content>
+</Button>
