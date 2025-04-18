@@ -6,13 +6,10 @@ import { BotonMobileComponent } from "../../../components/boton-mobile/boton-mob
 import { CommonModule } from '@angular/common';
 import { MobileMenuComponent } from "./mobile-menu/mobile-menu.component";
 import { Router } from '@angular/router';
-import { XIconComponent } from "../../../components/mobileIcons/x-icon/x-icon.component";
-import { MenuIconComponent } from "../../../components/mobileIcons/menu-icon/menu-icon.component";
-import { BotonComponent } from "../../../components/boton/boton.component";
 
 @Component({
   selector: 'app-header-h',
-  imports: [CommonModule, MenuIconComponent, XIconComponent, BotonComponent],
+  imports: [CommonModule, LogoHComponent, NavbarHComponent, BotonesRegistroHComponent, BotonMobileComponent, MobileMenuComponent],
   templateUrl: './header-h.component.html',
   styleUrl: './header-h.component.scss'
 })

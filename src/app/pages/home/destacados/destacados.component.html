@@ -54,8 +54,8 @@
                     </div>
         
                     <div class="flex items-center gap-3">
-                        <app-boton2 class="w-full" (click)="navigateTo('catalogo')">Comprar</app-boton2>                        
-                        <app-boton3 class="w-full" (click)="navigateTo('catalogo')">Alquilar</app-boton3>
+                        <app-boton2 class="w-full" (click)="navigateTo('comprar')">Comprar</app-boton2>                        
+                        <app-boton3 class="w-full" (click)="navigateTo('alquilar')">Alquilar</app-boton3>
                     </div>
                 </div>
             </div>
@@ -78,10 +78,15 @@
         ></button>
     </div>
     
-    <div class="flex items-center justify-center">
-        <app-boton class="text-lg" (click)="navigateTo('catalogo')">
+    <div class="flex items-center justify-center gap-6">
+        <app-boton class="text-lg" (click)="navigateTo('comprar')">
             <app-car-icon></app-car-icon>
-            Ver todos los vehículos
+            Comprar un vehículo
+        </app-boton>
+
+        <app-boton class="text-lg" (click)="navigateTo('alquilar')">
+            <app-car-icon></app-car-icon>
+            Alquilar un vehículo
         </app-boton>
     </div>
 </section>

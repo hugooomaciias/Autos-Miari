@@ -1,0 +1,22 @@
+<div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" (click)="closeModal()">
+    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto">
+        <!-- Encabezado del modal -->
+        <app-header-a [vehicle]="vehicle" (close)="closeModal()"></app-header-a>
+        
+        
+        <!-- Carrusel de imágenes -->
+        <app-carrusel-a [vehicle]="vehicle" [vehicles]="vehicles"></app-carrusel-a>
+          
+
+        <!-- Detalles del vehículo -->
+        <app-info-a [vehicle]="vehicle"></app-info-a>
+
+        <!-- Descripción del vehículo -->
+        <app-descripcion-a></app-descripcion-a>
+
+        <app-boton2 class="mx-auto w-1/2">
+            <app-cart-icon></app-cart-icon>
+            Comprar vehículo
+        </app-boton2>
+    </div>
+</div>

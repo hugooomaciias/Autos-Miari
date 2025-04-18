@@ -1,0 +1,42 @@
+<!-- Mobile Filter Toggle -->
+<div class="lg:hidden">
+    <Button class="flex items-center justify-between appearance-none bg-white/50 hover:bg-white rounded-md border-none px-3 py-2.5 w-full text-base cursor-pointer" (click)="toggleMobileMenu()">
+        <span class="flex items-center gap-2">
+            <app-filter-icon></app-filter-icon>
+            Filtros
+        </span>
+
+        <app-chevrom-down-icon></app-chevrom-down-icon>
+    </Button>
+
+    <div *ngIf="isMobileMenuOpen">
+        <div class="bg-white rounded-b-lg shadow-lg p-4 mb-6">
+            <app-filter-controls-c [filters]="filters" [currentPage]="currentPage" (filtersChange)="setFilters($event)" (goToPage)="irAPagina(1)"></app-filter-controls-c>
+
+            <app-boton4 class="mx-auto w-4/6 px-2 py-1" (click)="resetFilters(); irAPagina(1)" >
+                <span class="text-sm">Limpiar filtros</span>
+            </app-boton4>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Filtros para dispositivos tipo "Ordenador" -->
+<div class="hidden lg:block w-full lg:w-72 shrink-0">
+    <div class="bg-white rounded-lg shadow-lg px-6 py-4 sticky top-24">
+        <!-- Encabezado de filtros -->
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-semibold flex items-center gap-2">
+                <app-filter-icon></app-filter-icon>
+                Filters
+            </h3>
+
+            <app-boton4 class="px-2 py-1" (click)="resetFilters(); irAPagina(1)" >
+                <span class="text-xs">Limpiar</span>
+            </app-boton4>
+        </div>
+
+        <!-- Filtros -->
+        <app-filter-controls-c [filters]="filters" [currentPage]="currentPage" (filtersChange)="setFilters($event)" (goToPage)="irAPagina(1)"></app-filter-controls-c>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="relative mt-6">
+    <div class="overflow-hidden rounded-xl">
+        <div class="whitespace-nowrap transition-transform duration-500 ease-in-out" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+            <div *ngFor="let image of vehicle.vehicleImages let i = index" class="inline-block w-full">
+                <div class="aspect-w-16 aspect-h-9">
+                    <img [src]="image" [alt]="vehicle.name + ' - View ' + (i + 1)" class="w-full h-full object-cover rounded-lg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Botones para pasar de imagen -->
+    <!-- Botón para retorceder 1 imagen -->
+    <div class="absolute md:left-3 md:top-1/2 transform -translate-y-1/2 z-10">
+        <app-boton-slider (click)="prev()">
+            <app-left-arrow-icon></app-left-arrow-icon>
+        </app-boton-slider>
+    </div>
+
+    <!-- Botón para avanzar 1 imagen -->
+    <div class="absolute md:right-3 md:top-1/2 transform -translate-y-1/2 z-10">
+        <app-boton-slider (click)="next()">
+            <app-rigth-arrow-icon></app-rigth-arrow-icon>
+        </app-boton-slider>
+    </div>
+</div>

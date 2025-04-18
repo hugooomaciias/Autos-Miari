@@ -13,12 +13,17 @@ export class NavbarComponent {
   
   navItems = [
     {
-      title: "Catálogo",
-      label: "catalogo",
-      path: "catalogo",
+      title: "Comprar",
+      label: "comprar",
+      path: "comprar",
     },
     {
-      title: "Tasa tu coche",
+      title: "Alquilar",
+      label: "alquilar",
+      path: "alquilar",
+    },
+    {
+      title: "Tasa tu vehículo",
       label: "tasa-tu-coche",
       path: "tasa-tu-coche",
     },

@@ -1,0 +1,34 @@
+<!-- Header -->
+<app-header></app-header>
+
+<!-- Sección 'Hero' -->
+<app-hero-comprar [filters]="filters" (filtersChange)="updateFilters($event)"></app-hero-comprar>
+
+<!-- Filtros y resultados de la búsqueda -->
+<section>
+    <div class="container mx-auto px-4 mt-96 pt-20 md:pt-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filtros -->
+            <app-filters-c [filters]="filters" [currentPage]="currentPage" (filtersChange)="updateFilters($event)" (goToPage)="goToPage($event)"></app-filters-c>
+        
+            <!-- Resultados -->
+            <div class="flex-1">
+
+                <!-- Resultados en el encambezado -->
+                <app-result-header-c [filteredVehicles]="filteredVehicles" [viewType]="viewType" (viewTypeChange)="setViewType($event)"></app-result-header-c>
+        
+                <!-- Vehiculos -->
+                <app-vehicles-c [vehicles]="pagedVehicles" [viewType]="viewType" [favorites]="favorites" [filters]="filters" [currentPage]="currentPage" [visible]="showModal" [vehicle]="selectedVehicle"   
+                                (toggleFavorite)="onToggleFavorite($event)" (filtersChange)="updateFilters($event)" (goToPage)="goToPage($event)" (open)="openModal($event)">
+                </app-vehicles-c>
+        
+                <!-- Paginación -->
+                <app-pagination-c [vehicles]="filteredVehicles" [currentPage]="currentPage" [itemsPerPage]="itemsPerPage" [pageVehicles]="pagedVehicles"
+                                [totalPages]="totalPages" (goToPage)="goToPage($event)">
+                </app-pagination-c>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-detalles-c *ngIf="showModal" [vehicles]="vehicles" [vehicle]="selectedVehicle" (close)="closeModal()"></app-detalles-c>
