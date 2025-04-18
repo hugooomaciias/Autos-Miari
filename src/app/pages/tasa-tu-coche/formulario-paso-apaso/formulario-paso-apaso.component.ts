@@ -32,7 +32,7 @@ export class FormularioPasoAPasoComponent {
       fuel: ['', Validators.required],
       power: ['', Validators.required],
       doors: ['', Validators.required],
-      mileage: [0, Validators.required],
+      mileage: ['', Validators.required],
       date: [null, Validators.required],
       condition: ['', Validators.required]
     });

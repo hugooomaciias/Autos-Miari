@@ -22,7 +22,7 @@
                 </div>
             
                 <!-- Select -->
-                <div *ngIf="step.isSelect" class="relative w-full mt-2">
+                <div *ngIf="step.isSelect" class="relative w-full">
                     <select class="appearance-none bg-white/80 hover:bg-white rounded-md border-none w-full px-3 py-2.5 text-sm cursor-pointer"
                             [formControlName]="step.key" (change)="step.next && openNextStep(step.next)"
                     >
