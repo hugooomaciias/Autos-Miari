@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 export class BotonesRegistroHComponent {
   constructor(private router: Router) {}
 
-  navigateTo(path: string) {
-    this.router.navigate([path])
+  irAIniciarSesion() {
+    this.router.navigate(['/iniciar-sesion'], { queryParams: { tab: 'iniciar-sesion' } });
+  }
+  
+  irARegistro() {
+    this.router.navigate(['/iniciar-sesion'], { queryParams: { tab: 'registro' } });
   }
 }
