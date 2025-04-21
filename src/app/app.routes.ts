@@ -10,7 +10,7 @@ import { CookiesComponent } from './pages/cookies/cookies.component';
 import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.component';
 import { ConcertarCitaComponent } from './pages/concertar-cita/concertar-cita.component';
 import { AlquilarComponent } from './pages/alquilar/alquilar.component';
-import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
+import { iniSesRegComponent } from './pages/iniSes-Reg/iniSes-Reg.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -24,6 +24,6 @@ export const routes: Routes = [
     { path: 'cookies', component: CookiesComponent },
     { path: 'sobre-nosotros', component: SobreNosotrosComponent },
     { path: 'concertar-cita', component: ConcertarCitaComponent },
-    { path: 'iniciar-sesion', component: IniciarSesionComponent },
+    { path: 'iniSes-Reg', component: iniSesRegComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

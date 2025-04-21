@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { LogoComponent } from './logo/logo.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BotonesRegistroComponent } from './botones-registro/botones-registro.component';
@@ -14,6 +14,9 @@ import { MobileMenuComponent } from "../../pages/home/header-h/mobile-menu/mobil
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Output() cambiarIniciarSesion = new EventEmitter<void>();
+  @Output() cambiarRegistro = new EventEmitter<void>();
+  
   scrolled = false;
 
   @HostListener('window:scroll', [])
@@ -57,5 +60,13 @@ export class HeaderComponent {
     this.router.navigate([path]).then(() => {
       window.scrollTo(0, 0);
     });
+  }
+
+  cambiarIni() {
+    this.cambiarIniciarSesion.emit();
+  }
+
+  cambiarReg() {
+    this.cambiarRegistro.emit();
   }
 }

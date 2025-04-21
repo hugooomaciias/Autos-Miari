@@ -1,0 +1,49 @@
+<form [formGroup]="formReg" (ngSubmit)="onSubmitReg()" class="space-y-6 container mx-auto w-2/3">
+    <!-- Nombre -->
+    <div class="relative w-full ">
+        <label class="block mb-2 font-medium">Nombre completo</label>
+        <div class="flex items-center content-center">
+            <input type="text" formControlName="name" placeholder="Jose Luis" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+            
+            <span class="absolute pl-3 opacity-50">
+                <app-person-icon></app-person-icon>
+            </span>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="relative w-full ">
+        <label class="block mb-2 font-medium">Dirección de correo</label>
+        <div class="flex items-center content-center">
+            <input type="email" formControlName="email" placeholder="info@autosmiari.com" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+
+            <span class="absolute pl-3 opacity-50">
+                <app-mail-icon currentClass="size-[1.30rem]"></app-mail-icon>
+            </span>
+        </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="relative w-full ">
+        <label class="block mb-2 font-medium">Contraseña</label>
+        <div class="flex items-center content-center">
+            <input [type]="mostrarPassword ? 'text' : 'password'" formControlName="pass" placeholder="Contraseña" class="w-full p-[0.65rem] rounded-lg opacity-80 text-sm border border-black/50"/>
+            
+            <span class="absolute right-3 opacity-50 cursor-pointer" (click)="mostrarPassword = ! mostrarPassword">
+                <ng-container *ngIf="mostrarPassword; else ocultarPassword" class="bg-red-500">
+                    <app-eye-open-icon></app-eye-open-icon>
+                </ng-container>
+
+                <ng-template #ocultarPassword>
+                    <app-eye-close-icon></app-eye-close-icon>
+                </ng-template>
+            </span>
+        </div>
+    </div>
+
+    <!-- Botón -->
+    <app-boton2 type="submit" class="mt-6 mx-auto">
+        <app-user-plus-icon></app-user-plus-icon>
+        Registrate
+    </app-boton2>
+</form>

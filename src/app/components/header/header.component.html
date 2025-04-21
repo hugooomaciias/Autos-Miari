@@ -4,7 +4,7 @@
 
         <app-navbar class="hidden md:block lg:block"></app-navbar>
 
-        <app-botones-registro class="hidden md:block lg:block"></app-botones-registro>
+        <app-botones-registro class="hidden md:block lg:block" (cambiarIniciarSesion)="cambiarIni()" (cambiarRegistro)="cambiarReg()"></app-botones-registro>
 
         <!-- Mobile Menu Toggle -->
         <app-boton-mobile class="md:hidden" [mobileMenuOpen]="isMobileMenuOpen" (toggleMobileMenu)="toggleMobileMenu()"></app-boton-mobile>

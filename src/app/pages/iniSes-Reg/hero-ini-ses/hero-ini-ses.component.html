@@ -1,0 +1,29 @@
+<section class="absolute left-0 top-0 w-full mb-96 bg-gradient-to-r from-black to-[#6d7991] text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <ng-container [ngSwitch]="activeTab">
+                <div *ngSwitchCase="'iniciar-sesion'">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Iniciar sesión</h1>
+                    <p class="text-xl text-white/80 mb-8">
+                        Accede a todas tus funcionalidades, guarda tus vehículos favoritos y gestiona tus compras o alquileres desde un solo lugar.
+                    </p>
+                </div>
+    
+                <div *ngSwitchCase="'registro'">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Registrate</h1>
+                    <p class="text-xl text-white/80 mb-8">
+                        Únete a nuestra comunidad y disfruta de una experiencia personalizada al comprar o alquilar vehículos fácilmente.
+                    </p>
+                </div>
+    
+                <div *ngSwitchCase="'olvidarPassword'">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Recuperar contraseña</h1>
+                    <p class="text-xl text-white/80 mb-8">
+                        ¿Olvidaste tu contraseña? No te preocupes, te ayudaremos a restablecerla. Introduce tu correo electrónico y sigue
+                        las instrucciones que te enviaremos.
+                    </p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

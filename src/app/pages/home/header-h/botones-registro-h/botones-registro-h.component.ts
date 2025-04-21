@@ -12,10 +12,10 @@ export class BotonesRegistroHComponent {
   constructor(private router: Router) {}
 
   irAIniciarSesion() {
-    this.router.navigate(['/iniciar-sesion'], { queryParams: { tab: 'iniciar-sesion' } });
+    this.router.navigate(['/iniSes-Reg'], { queryParams: { tab: 'iniciar-sesion' } });
   }
   
   irARegistro() {
-    this.router.navigate(['/iniciar-sesion'], { queryParams: { tab: 'registro' } });
+    this.router.navigate(['/iniSes-Reg'], { queryParams: { tab: 'registro' } });
   }
 }
