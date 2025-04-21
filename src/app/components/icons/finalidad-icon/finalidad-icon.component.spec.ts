@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OlvidarPassComponent } from './olvidar-pass.component';
+import { FinalidadIconComponent } from './finalidad-icon.component';
 
-describe('OlvidarPassComponent', () => {
-  let component: OlvidarPassComponent;
-  let fixture: ComponentFixture<OlvidarPassComponent>;
+describe('FinalidadIconComponent', () => {
+  let component: FinalidadIconComponent;
+  let fixture: ComponentFixture<FinalidadIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OlvidarPassComponent]
+      imports: [FinalidadIconComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OlvidarPassComponent);
+    fixture = TestBed.createComponent(FinalidadIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

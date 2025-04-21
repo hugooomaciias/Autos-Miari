@@ -11,6 +11,8 @@ import { SobreNosotrosComponent } from './pages/sobre-nosotros/sobre-nosotros.co
 import { ConcertarCitaComponent } from './pages/concertar-cita/concertar-cita.component';
 import { AlquilarComponent } from './pages/alquilar/alquilar.component';
 import { iniSesRegComponent } from './pages/iniSes-Reg/iniSes-Reg.component';
+import { ModificarStockComponent } from './pages/modificar-stock/modificar-stock.component';
+import { ReservasComponent } from './pages/reservas/reservas.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -25,5 +27,7 @@ export const routes: Routes = [
     { path: 'sobre-nosotros', component: SobreNosotrosComponent },
     { path: 'concertar-cita', component: ConcertarCitaComponent },
     { path: 'iniSes-Reg', component: iniSesRegComponent },
+    { path: 'modificar-stock', component: ModificarStockComponent },
+    { path: 'reservas', component: ReservasComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

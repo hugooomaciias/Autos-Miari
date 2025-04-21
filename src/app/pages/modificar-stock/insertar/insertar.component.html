@@ -1,0 +1,137 @@
+<form [formGroup]="formIns" (ngSubmit)="onSubmitIns()" class="space-y-6 container mx-auto w-2/3">
+    <div class="flex items-center justify-center gap-4">
+        <!-- Marca -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Marca</label>
+            <div class="flex items-center content-center">
+                <input formControlName="marca" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-brand-icon currentClass="size-[1.30rem]"></app-brand-icon>
+                </span>
+            </div>
+        </div>
+
+        <!-- Modelo -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Modelo</label>
+            <div class="flex items-center content-center">
+                <input formControlName="modelo" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-tag-icon currentClass="size-[1.30rem]"></app-tag-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-4">
+        <!-- Transmisión -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Tipo de transmisión</label>
+            <div class="flex items-center content-center">
+                <input formControlName="transmision" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-engine-icon currentClass="size-[1.30rem]"></app-engine-icon>
+                </span>
+            </div>
+        </div>
+
+        <!-- Combustible -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Tipo de combustible</label>
+            <div class="flex items-center content-center">
+                <input formControlName="combustible" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-fuel-icon currentClass="size-[1.30rem]"></app-fuel-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-4">
+        <!-- Tipo de vehículo -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Tipo de vehículo</label>
+            <div class="flex items-center content-center">
+                <input formControlName="tipo" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-car-icon currentClass="size-[1.30rem]"></app-car-icon>
+                </span>
+            </div>
+        </div>
+
+        <!-- Color -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Color</label>
+            <div class="flex items-center content-center">
+                <input formControlName="color" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-color-icon currentClass="size-[1.30rem]"></app-color-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-4">
+        <!-- Fecha -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Fecha de matriculación</label>
+            <div class="flex items-center content-center">
+                <input formControlName="fecha" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-calendar-icon currentClass="size-[1.30rem]"></app-calendar-icon>
+                </span>
+            </div>
+        </div>
+
+        <!-- Kilometraje -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Kilometraje</label>
+            <div class="flex items-center content-center">
+                <input formControlName="kilometraje" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-km-icon currentClass="size-[1.30rem]"></app-km-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-4">
+        <!-- Precio -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Precio</label>
+            <div class="flex items-center content-center">
+                <input formControlName="precio" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-euro-bag-icon currentClass="size-[1.30rem]"></app-euro-bag-icon>
+                </span>
+            </div>
+        </div>
+
+        <!-- Finalidad -->
+        <div class="relative w-full">
+            <label class="block mb-2 font-medium">Finalidad</label>
+            <div class="flex items-center content-center">
+                <input formControlName="finalidad" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
+    
+                <span class="absolute pl-3 opacity-50">
+                    <app-finalidad-icon currentClass="size-[1.30rem]"></app-finalidad-icon>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón -->
+    <app-boton2 type="submit" class="mt-6 mx-auto">
+        <app-upload-icon></app-upload-icon>
+        Insertar nuevo vehículo
+    </app-boton2>
+</form>

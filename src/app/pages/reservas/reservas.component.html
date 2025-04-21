@@ -1,0 +1,28 @@
+<app-header></app-header>
+<app-hero-r></app-hero-r>
+
+<div class="flex flex-col mt-96">
+    <div *ngIf="reservas.length === 0; else hayReservas">
+        <div class="text-muted-foreground">No reservations yet.</div>
+    </div>
+
+    <ng-template #hayReservas>
+        <table class="container mx-auto w-1/2 bg-white shadow-xl rounded-lg border-collapse">
+            <thead class="bg-[#ff3131]">
+                <tr>
+                    <th class="py-2 text-center text-lg text-white border-b">Vehículo</th>
+                    <th class="py-2 text-center text-lg text-white border-b">Reservado desde</th>
+                    <th class="py-2 text-center text-lg text-white border-b">Reservado hasta</th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let reserva of reservas">
+                <tr key={id} class="border-t">
+                    <td class="px-4 py-2 text-center text-base">{{reserva.nombre}}</td>
+                    <td class="px-4 py-2 text-center text-base">{{reserva.fechaInicio}}</td>
+                    <td class="px-4 py-2 text-center text-base">{{reserva.fechaFin}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>

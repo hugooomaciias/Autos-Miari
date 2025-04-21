@@ -1,0 +1,21 @@
+<section class="absolute left-0 top-0 w-full mb-96 bg-gradient-to-r from-black to-[#6d7991] text-white py-16">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <ng-container [ngSwitch]="activeTab">
+                <div *ngSwitchCase="'insertar'">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Insertar un vehículo</h1>
+                    <p class="text-xl text-white/80 mb-8">
+                        Añade tu vehículo a nuestra plataforma en pocos pasos. Completa los datos necesarios y el nuevo vehículo aparecerá en el catálogo.
+                    </p>
+                </div>
+    
+                <div *ngSwitchCase="'eliminar'">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Eliminar un vehículo</h1>
+                    <p class="text-xl text-white/80 mb-8">
+                        Elimina uno de tus vehículos de la plataforma. Esta acción es permanente y eliminará todos los datos asociados al anuncio. Asegúrate antes de continuar.
+                    </p>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

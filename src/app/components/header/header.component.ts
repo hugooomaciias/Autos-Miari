@@ -18,7 +18,9 @@ export class HeaderComponent {
   @Output() cambiarRegistro = new EventEmitter<void>();
   
   scrolled = false;
-
+  
+  constructor(private router: Router) {}
+  
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.scrolled = window.scrollY > 20;
@@ -30,31 +32,6 @@ export class HeaderComponent {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
-
-  constructor(private router: Router) {}
-
-  navItems = [
-    {
-      title: "Catálogo",
-      label: "catalogo",
-      path: "catalogo",
-    },
-    {
-      title: "Tasa tu coche",
-      label: "tasa-tu-coche",
-      path: "tasa-tu-coche",
-    },
-    {
-      title: "Localización",
-      label: "localizacion",
-      path: "localizacion",
-    },
-    {
-      title: "Contacto",
-      label: "contacto",
-      path: "contacto",
-    },
-  ];
 
   navigateTo(path: string) {
     this.router.navigate([path]).then(() => {

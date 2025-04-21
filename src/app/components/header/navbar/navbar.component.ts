@@ -37,6 +37,16 @@ export class NavbarComponent {
       label: "contacto",
       path: "contacto",
     },
+    {
+      title: "Modificar stock",
+      label: "modificar-stock",
+      path: "modificar-stock",
+    },
+    {
+      title: "Reservas",
+      label: "reservas",
+      path: "reservas",
+    }
   ];
 
   navigateTo(path: string) {
