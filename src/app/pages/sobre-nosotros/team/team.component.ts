@@ -15,7 +15,7 @@ export class TeamComponent {
     {
       icon: BriefCaseIconComponent,
       title: 'Experiencia previa',
-      description: 'Cualquier experiencia previa que hayas tenido en el sector de los automóviles'
+      description: 'Cualquier experiencia previa que hayas tenido en el sector'
     },
     {
       icon: BookIconComponent,

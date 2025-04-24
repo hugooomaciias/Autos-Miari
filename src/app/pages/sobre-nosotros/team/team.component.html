@@ -1,7 +1,7 @@
 <div class="container mx-auto px-4 mb-16 md:mb-28">
     <div class="text-center mb-8 md:14">
         <h2 class="text-3xl font-bold mb-4">Conoce a nuestro fundador</h2>
-        <p class="text-lg md:text-lg mx-auto mb-8 max-w-3xl opacity-80">
+        <p class="text-lg md:text-lg mx-auto max-w-3xl opacity-60">
             La visión, la experiencia y la pasión que respaldan el compromiso de Autos Miari con la excelencia.
         </p>
     </div>
@@ -18,7 +18,7 @@
         <div class="lg:w-3/5">
             <h3 class="text-2xl font-bold mb-2 mt-0">Jose Luis</h3>
             <p class="text-black font-medium mb-4">Fundador & CEO</p>
-            <p class="opacity-80 mb-6 text-base">
+            <p class="opacity-60 mb-6 text-base">
                 Con más de 10 años en la industria del automóvil, Joselu fundó Autos Miari con la visión de redefinir 
                 la experiencia de compra de coches. Su pasión por un servicio al cliente excepcional y su profundo conocimiento 
                 de los vehículos de alta gama han convertido a Autos Miari en el principal destino para los entusiastas de los coches más exigentes.
@@ -26,14 +26,14 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div *ngFor="let logro of logros">
-                    <div class="flex items-start bg-white rounded-lg max-w-sm px-6 pt-4 pb-2 gap-3 border border-border/40 shadow-sm hover:shadow-lg hover:bg-white/50 transition-all duration-300">
+                    <div class="flex items-start bg-white rounded-lg max-w-sm px-6 pt-4 pb-2 gap-3 border-none shadow-sm hover:shadow-lg transition-all duration-300">
                         <div class="flex items-center">
                             <ng-container *ngComponentOutlet="logro.icon"></ng-container>
                         </div>
         
                         <div class="flex flex-col">
                             <h3 class="text-lg font-semibold my-0">{{logro.title}}</h3>
-                            <p class="text-sm opacity-60">{{logro.description}}</p>
+                            <p class="text-base opacity-50">{{logro.description}}</p>
                         </div>
                     </div>
                 </div>

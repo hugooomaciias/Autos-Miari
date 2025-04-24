@@ -13,24 +13,28 @@
 
     <div class="px-6 pt-2 pb-4">
         <div class="mb-3 flex justify-between items-start">
-            <h3 class="font-semibold text-lg">{{ vehicle.name }}</h3>
+            <h3 class="font-semibold text-xl">{{ vehicle.name }}</h3>
             <p class="font-bold text-lg">{{ vehicle.price }} €</p>
         </div>
 
-        <div class="flex items-center text-muted-foreground mb-4">
-            <span class="text-sm">{{ vehicle.year }}</span>
+        <div class="flex items-center flex-wrap opacity-60 mb-4">
+            <span>{{ vehicle.year }}</span>
             <span class="mx-2">•</span>
-            <span class="text-sm">{{ vehicle.type }}</span>
+            <span>{{ vehicle.type }}</span>
+            <span class="mx-2">•</span>
+            <span>{{ vehicle.fuel }}</span>
+            <span class="mx-2">•</span>
+            <span>{{ vehicle.color }}</span>
         </div>
 
         <div class="grid grid-cols-2 gap-2 mb-5">
-            <div class="text-sm">
-                <p class="text-muted-foreground">Kilometraje</p>
+            <div>
+                <p class="opacity-60">Kilometraje</p>
                 <p class="font-medium">{{ vehicle.mileage }} km</p>
             </div>
 
-            <div class="text-sm">
-                <p class="text-muted-foreground">Transmisión</p>
+            <div>
+                <p class="opacity-60">Transmisión</p>
                 <p class="font-medium">{{ vehicle.transmission }}</p>
             </div>
         </div>

@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 html {
-  font-family: "Onest Variable", system-ui, sans-serif;
+  font-family: "Onest", system-ui, sans-serif;
 	scroll-behavior: smooth;
 }
 
+@media (prefers-reduce-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 
 html, body { height: 100%; }

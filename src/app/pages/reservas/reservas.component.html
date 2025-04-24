@@ -1,9 +1,11 @@
 <app-header></app-header>
 <app-hero-r></app-hero-r>
 
-<div class="flex flex-col mt-96">
-    <div *ngIf="reservas.length === 0; else hayReservas">
-        <div class="text-muted-foreground">No reservations yet.</div>
+<div class="flex flex-col items-center justify-center mt-96">
+    <div *ngIf="reservas.length === 0; else hayReservas" class="bg-white rounded-lg shadow p-8 text-center w-1/3">
+        <app-alert-icon></app-alert-icon>
+        <h3 class="text-xl font-bold mb-2">Actualmente no hay reservas registradas.</h3>
+        <p class="opacity-50 mb-4">Las reservas aparecerán aquí una vez que los usuarios completen el proceso de alquiler.</p>
     </div>
 
     <ng-template #hayReservas>
@@ -16,8 +18,8 @@
                 </tr>
             </thead>
 
-            <tbody *ngFor="let reserva of reservas">
-                <tr key={id} class="border-t">
+            <tbody>
+                <tr *ngFor="let reserva of reservas">
                     <td class="px-4 py-2 text-center text-base">{{reserva.nombre}}</td>
                     <td class="px-4 py-2 text-center text-base">{{reserva.fechaInicio}}</td>
                     <td class="px-4 py-2 text-center text-base">{{reserva.fechaFin}}</td>

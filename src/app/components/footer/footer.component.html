@@ -24,7 +24,7 @@
             <div>
                 <h3 class="font-semibold text-xl mb-4">Enlaces rápidos</h3>
                 <a *ngFor="let link of quickLinks" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
-                        class="relative block pb-4 transition hover:text-[#ff0030] cursor-pointer">
+                        class="relative block pb-4 opacity-80 transition hover:text-[#ff0030] hover:opacity-100 cursor-pointer">
                     {{link.title}}
                 </a>
             </div>
@@ -32,14 +32,14 @@
             <div>
                 <h3 class="font-semibold text-lg mb-4">Sobre nosotros</h3>
                 <a *ngFor="let link of aboutUs" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
-                    class="relative block pb-4 transition hover:text-[#ff0030] cursor-pointer">
+                    class="relative block pb-4 opacity-80 transition hover:text-[#ff0030] hover:opacity-100 cursor-pointer">
                     {{link.title}}
                 </a>
             </div>
             
             <div>
                 <h3 class="font-semibold text-lg mb-4">Contacta con nosotros</h3>
-                <div class="space-y-4">
+                <div class="space-y-4 opacity-80">
                     <div class="flex items-start gap-3">
                         <app-location-icon></app-location-icon>
                         <span>

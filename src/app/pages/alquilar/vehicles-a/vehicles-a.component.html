@@ -2,7 +2,7 @@
 <div *ngIf="vehicles.length === 0; else showVehicles" class="bg-white rounded-lg shadow p-8 text-center"> 
     <app-alert-icon></app-alert-icon>
     <h3 class="text-xl font-bold mb-2">No se han encontrado vehículos</h3>
-    <p class="text-muted-foreground mb-4">Prueba a ajustar los filtros para encontrar más opciones</p>
+    <p class="opacity-50 mb-4">Prueba a ajustar los filtros para encontrar más opciones</p>
     <app-boton4 class="mx-auto w-4/6 md:w-1/6" (click)="resetFilters(); irAPagina(1)">
         <app-trash-icon></app-trash-icon>
         <span class="text-sm">Limpiar filtros</span>

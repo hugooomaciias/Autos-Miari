@@ -1,7 +1,7 @@
 <section class="container mx-auto py-24">
     <div class="text-center mb-8 md:mb-14 mt-28">
         <h2 class="text-3xl font-bold mb-4">Vehículos destacados</h2>
-        <p class="text-lg md:text-xl mx-auto max-w-3xl opacity-80">
+        <p class="text-lg md:text-xl mx-auto max-w-3xl opacity-60">
             Descubre nuestra cuidada selección de vehículos, pensada para adaptarse a tus necesidades del día a día. 
             Desde coches compactos hasta opciones familiares, todos revisados y listos para acompañarte en cada trayecto
         </p>
@@ -36,18 +36,18 @@
                     </div>
         
                     <div class="flex items-center opacity-60 mb-4">
-                        <span class="text-sm">{{ vehicle.year }}</span>
+                        <span class="text-base">{{ vehicle.year }}</span>
                         <span class="mx-2">•</span>
-                        <span class="text-sm">{{ vehicle.type }}</span>
+                        <span class="text-base">{{ vehicle.type }}</span>
                     </div>
         
                     <div class="grid grid-cols-2 gap-2 mb-5">
-                        <div class="text-sm">
+                        <div class="text-base">
                             <p class="opacity-60">Kilometraje</p>
                             <p class="font-medium">{{ vehicle.mileage }}</p>
                         </div>
         
-                        <div class="text-sm">
+                        <div class="text-base">
                             <p class="opacity-60">Transmisión</p>
                             <p class="font-medium">{{ vehicle.transmission }}</p>
                         </div>

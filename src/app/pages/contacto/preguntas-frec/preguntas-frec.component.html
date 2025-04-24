@@ -1,7 +1,7 @@
 <div class="space-y-8">
     <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold mb-4">Preguntas frequentes</h2>
-        <p class="opacity-80">
+        <h2 class="text-3xl font-bold mb-4 mt-0">Preguntas frequentes</h2>
+        <p class="opacity-60">
             Encuentra respuestas rápidas a preguntas frecuentes
         </p>
     </div>
@@ -10,7 +10,7 @@
         <div *ngFor="let question of frecQuestions">
             <div class="bg-white rounded-lg px-6 py-2 shadow-sm hover:shadow-lg transition-all duration-300 cursor-default">
                 <h3 class="text-xl font-medium mb-3"> {{question.quest}}</h3>
-                <p class="opacity-60">
+                <p class="opacity-50 text-base">
                     {{question.answer}}
                 </p>
             </div>
@@ -18,7 +18,7 @@
     </div>
     
     <div class="text-center mt-8">
-        <p class="opacity-80 mb-4 text-lg">
+        <p class="opacity-60 mb-4 text-lg">
             ¿No encuentras lo que buscas? Envía tu pregunta mediante el formulario situado a la izquierda.
         </p>
 

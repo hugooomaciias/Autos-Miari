@@ -24,44 +24,56 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6 place-items-start md:place-items-center place-content-center">
             <!-- Marca -->
             <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium">Marca</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Selecciona la marca</option>
-                </select>
+                <label class="block mb-2 text-lg font-medium">Marca</label>
+                <div class="flex items-center content-center">
+                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Selecciona una marca</option>
+                    </select>
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-brand-icon currentClass="size-[1.30rem]"></app-brand-icon>
+                    </span>
+                </div>
             </div>
 
             <!-- Modelo -->
             <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium">Modelo</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Selecciona el modelo</option>
-                </select>
+                <label class="block mb-2 text-lg font-medium">Modelo</label>
+                <div class="flex items-center content-center">
+                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Selecciona un modelo</option>
+                    </select>
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-tag-icon currentClass="size-[1.30rem]"></app-tag-icon>
+                    </span>
+                </div>
             </div>
 
             <!-- Precio -->
             <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium">Precio</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Cualquier precio</option>
-                    <option value="Menos de 10.000€">Menos de 10.000€</option>
-                    <option value="10.000€ - 30.000€">10.000€ - 30.000€</option>
-                    <option value="30.000€ - 50.000€">30.000€ - 50.000€</option>
-                    <option value="50.000€ - 100.000€">50.000€ - 100.000€</option>
-                    <option value="Más de 100.000€">Más de 100.000€</option>
-                </select>
+                <label class="block mb-2 text-lg font-medium">Precio</label>
+                <div class="flex items-center content-center">
+                    <input type="tel" placeholder="Introduce un precio" class="w-full p-[0.65rem] pl-10 rounded-full opacity-80 text-sm border border-black/50" />
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-euro-bag-icon currentClass="size-[1.30rem]"></app-euro-bag-icon>
+                    </span>
+                </div>
             </div>
 
             <!-- Año -->
             <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium">Año</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Cualquier año</option>
-                    <option value="Después de 2023">Después de 2023</option>
-                    <option value="2020-2022">2020-2022</option>
-                    <option value="2015-2019">2015-2019</option>
-                    <option value="2010-2014">2010-2014</option>
-                    <option value="Antes de 2010">Antes de 2010</option>
-                </select>
+                <label class="block mb-2 text-lg font-medium">Año</label>
+                <div class="flex items-center content-center">
+                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Selecciona un año</option>
+                    </select>
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-brand-icon currentClass="size-[1.30rem]"></app-brand-icon>
+                    </span>
+                </div>
             </div>    
         </div>
 

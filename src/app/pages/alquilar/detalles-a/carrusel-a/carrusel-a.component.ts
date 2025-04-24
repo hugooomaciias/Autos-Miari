@@ -17,6 +17,7 @@ export class CarruselAComponent {
   currentIndex = 0;
 
   next() {
+    console.log(this.currentIndex)
     if (this.currentIndex < this.vehicles[2].vehicleImages.length - 1) {
       this.currentIndex++;
     } else {
