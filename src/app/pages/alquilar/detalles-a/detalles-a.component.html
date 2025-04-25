@@ -1,42 +1,34 @@
 <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" (click)="closeModal()">
-    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto">
+    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto" (click)="$event.stopPropagation()">
         <!-- Encabezado del modal -->
         <app-header-a [vehicle]="vehicle" (close)="closeModal()"></app-header-a>
         
         <!-- Carrusel de imágenes -->
-        <div class="relative mt-6">
-            <div class="overflow-hidden rounded-xl">
-                <div class="whitespace-nowrap transition-transform duration-500 ease-in-out" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
-                    <div *ngFor="let image of vehicle.vehicleImages let i = index" class="inline-block w-full">
-                        <div class="aspect-w-16 aspect-h-9">
-                            <img [src]="image" [alt]="vehicle.name + ' - View ' + (i + 1)" class="w-full h-full object-cover rounded-lg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <!-- Botones para pasar de imagen -->
-            <!-- Botón para retorceder 1 imagen -->
-            <div class="absolute md:left-3 md:top-1/2 transform -translate-y-1/2 z-10">
-                <app-boton-slider (click)="prev()">
-                    <app-left-arrow-icon></app-left-arrow-icon>
-                </app-boton-slider>
-            </div>
-        
-            <!-- Botón para avanzar 1 imagen -->
-            <div class="absolute md:right-3 md:top-1/2 transform -translate-y-1/2 z-10">
-                <app-boton-slider (click)="next()">
-                    <app-rigth-arrow-icon></app-rigth-arrow-icon>
-                </app-boton-slider>
-            </div>
-        </div>
-        <!--<app-carrusel-a [vehicle]="vehicle" [vehicles]="vehicles"></app-carrusel-a>-->
+        <app-carrusel-a [vehicle]="vehicle" [vehicles]="vehicles"></app-carrusel-a>
 
         <!-- Detalles del vehículo -->
         <app-info-a [vehicle]="vehicle"></app-info-a>
 
         <!-- Descripción del vehículo -->
         <app-descripcion-a></app-descripcion-a>
+
+        <div *ngIf="mostrarCalendarios" class="flex items-center justify-center gap-6 w-9/12 mx-auto mb-12">
+            <div class="w-full">
+                <div class="flex items-center gap-2 text-lg font-medium mb-2">
+                    <app-calendar-start></app-calendar-start>
+                    Fecha de inicio
+                </div>
+                <mat-calendar [(selected)]="fechaIni" [selected]="filters.fechaInicio" [startAt]="filters.fechaInicio" class="rounded-xl custom-calendar"></mat-calendar>
+            </div>
+          
+            <div class="w-full">
+                <div class="flex items-center gap-2 text-lg font-medium mb-2">
+                    <app-calendar-end></app-calendar-end>
+                    Fecha de fin
+                </div>
+                <mat-calendar [(selected)]="fechaFin" [selected]="filters.fechaFin" [startAt]="filters.fechaFin" class="rounded-xl custom-calendar"></mat-calendar>
+            </div>
+        </div>
 
         <app-boton2 class="mx-auto w-1/2" (click)="reservarVehiculo()">
             <app-calendar-check-icon></app-calendar-check-icon>

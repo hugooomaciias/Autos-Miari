@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterControlsComponent } from './filter-controls-c.component';
+import { FilterControlsCComponent } from './filter-controls-c.component';
 
 describe('FilterControlsComponent', () => {
   let component: FilterControlsComponent;
@@ -12,7 +12,7 @@ describe('FilterControlsComponent', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FilterControlsComponent);
+    fixture = TestBed.createComponent(FilterControlsCComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

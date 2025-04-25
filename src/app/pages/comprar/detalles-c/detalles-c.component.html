@@ -1,5 +1,5 @@
 <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" (click)="closeModal()">
-    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto">
+    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto" (click)="$event.stopPropagation()">
         <!-- Encabezado del modal -->
         <app-header-c [vehicle]="vehicle" (close)="closeModal()"></app-header-c>
         

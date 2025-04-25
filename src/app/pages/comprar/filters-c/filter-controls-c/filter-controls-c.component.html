@@ -55,6 +55,9 @@
                 </div>
             </div>
         </div>
-        <div class="w-full h-0.5 bg-black opacity-20 mt-5"></div>
+
+        <div *ngIf="! (filter.key === 'color')">
+            <div class="w-full h-0.5 bg-black opacity-20 mt-5"></div>
+        </div>
     </div>
 </ng-container>

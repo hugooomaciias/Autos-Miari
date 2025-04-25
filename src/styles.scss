@@ -14,3 +14,103 @@ html {
 }
 
 html, body { height: 100%; }
+
+.custom-calendar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+  /* Estilos generales */
+  
+  .mat-calendar-content {
+    padding: 10px;
+
+    .mat-calendar-body-label {
+      display: none;
+    }
+  }
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /* Cabecera del calendario */
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+  /* MES AÑO */
+  .mat-calendar-header {
+    color: black;
+
+    /* Botón para cambiar de AÑO */
+    .mat-calendar-period-button {
+      color: black;
+      font-size: 17px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #6d7991;
+        color: white !important; /* Mismo color que usas en otros hover */
+      }
+
+      .mat-calendar-arrow {
+        display: none;
+      }
+    }
+  }
+
+  /* Flechas de avanzar y retroceder meses */
+  .mat-calendar-previous-button,
+  .mat-calendar-next-button {
+    color: black !important;
+    
+    /* Flechas al hacer hover*/
+    &:hover {
+      background-color: #6d7991;
+      color: white !important; /* Mismo color que usas en otros hover */
+    }
+  }
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /* Días de la semana */
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+  .mat-calendar-table-header {
+    th {
+      color: black;
+    }
+  }
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  /* Días del calendario */
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  
+  .mat-calendar-body-cell {
+    .mat-calendar-body-cell-content {
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      color: #00000080;
+    }
+
+    &:hover .mat-calendar-body-cell-content {
+      background-color: transparent;
+      border-color: #6d7991;
+      color: #00000080 !important;
+    }
+  }
+
+  /* Día seleccionado */
+  .mat-calendar-body-selected {
+    background-color: #6d7991;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba(63, 81, 181, 0.3);
+  }
+
+  /* Día actual */
+  .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+    border-color: #ff3131 !important;
+    color: #ff3131;
+    font-weight: 500;
+  }
+
+  /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+}

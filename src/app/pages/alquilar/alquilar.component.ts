@@ -21,6 +21,7 @@ export class AlquilarComponent {
   currentPage: number = 1;
   itemsPerPage: number = 21;
   totalPags: number = 0;
+  mostrarCalendarios: boolean = false;
   
   // Todos los vehículos disponibles
   vehicles: {
@@ -36,6 +37,7 @@ export class AlquilarComponent {
     color: string;
     year: string;
     price: number;
+    diasDisponibles: { fechaIniDispo: string, fechaFinDispo: string }[];
     mileage: number;
     isNew: boolean;
   }[] = [
@@ -56,6 +58,12 @@ export class AlquilarComponent {
       year: '2023',
       color: 'Blanco',
       price: 250,
+      diasDisponibles: [
+        {
+          fechaIniDispo: '2025-05-01',
+          fechaFinDispo: '2025-05-25',
+        }
+      ],
       mileage: 90335,
       isNew: true
     },
@@ -75,6 +83,12 @@ export class AlquilarComponent {
       year: '2022',
       color: 'Blanco',
       price: 300,
+      diasDisponibles: [
+        {
+          fechaIniDispo: '2025-05-05',
+          fechaFinDispo: '2025-06-15',
+        }
+      ],
       mileage: 158500,
       isNew: false
     },
@@ -95,6 +109,12 @@ export class AlquilarComponent {
       year: '2018',
       color: 'Blanco',
       price: 200,
+      diasDisponibles: [
+        {
+          fechaIniDispo: '2025-06-01',
+          fechaFinDispo: '2025-06-30',
+        }
+      ],
       mileage: 12345,
       isNew: true
     }
@@ -108,7 +128,9 @@ export class AlquilarComponent {
     transmission: ['Todas las transmisiones'],
     fuel: ['Todos los combustibles'],
     color: ['Todos los colores'],
-    pricePerDay: [0, 1000]
+    pricePerDay: [0, 1000],
+    fechaInicio: null,
+    fechaFin: null
   };
 
   constructor(private route: ActivatedRoute) {}
@@ -117,8 +139,8 @@ export class AlquilarComponent {
     this.route.queryParams.subscribe(params => {
       const filtros = {...this.filters};
 
-      if(params['fechaIni']) filtros.brand = [params['fechaIni']];
-      if(params['fechaFin']) filtros.model = [params['fechaFin']];
+      if(params['fechaIni']) filtros.fechaInicio = new Date(params['fechaIni']);
+      if(params['fechaFin']) filtros.fechaFin = new Date(params['fechaFin']);
       if(params['tipo']) filtros.type = [params['tipo']];
       if(params['precioPorDia']) filtros.pricePerDay[1] = parseInt(params['precioPorDia']);
 
@@ -144,14 +166,16 @@ export class AlquilarComponent {
       transmission: ['Todas las transmisiones'],
       fuel: ['Todos los combustibles'],
       color: ['Todos los colores'],
-      pricePerDay: [0, 1000]
+      pricePerDay: [0, 1000],
+      fechaInicio: null,
+      fechaFin: null
     };
   }
 
   // Aplicar filtros a los vehículos
   get filteredVehicles() {
     return this.vehicles.filter(vehicle => {
-      return (
+      const isWithinFilters = (
         (this.filters.brand.includes('Todas las marcas') || this.filters.brand.includes(vehicle.brand)) &&
         (this.filters.model.includes('Todos los modelos') || this.filters.model.includes(vehicle.model)) &&
         (this.filters.type.includes('Todos los tipos') || this.filters.type.includes(vehicle.type)) &&
@@ -161,6 +185,29 @@ export class AlquilarComponent {
         vehicle.price >= this.filters.pricePerDay[0] &&
         vehicle.price <= this.filters.pricePerDay[1]
       );
+
+      // Comprobar las fechas de disponibilidad
+      const isAvailableInDateRange = vehicle.diasDisponibles.some(disponibilidad => {
+        const fechaInicioDispo = new Date(disponibilidad.fechaIniDispo);
+        const fechaFinDispo = new Date(disponibilidad.fechaFinDispo);
+
+        // Si hay fechas en el filtro
+        if (this.filters.fechaInicio && this.filters.fechaFin) {
+          this.mostrarCalendarios = true;
+          const filtroFechaInicio = new Date(this.filters.fechaInicio);
+          const filtroFechaFin = new Date(this.filters.fechaFin);
+
+          // Comprobar si las fechas se solapan
+          return (
+            (fechaInicioDispo <= filtroFechaFin && fechaFinDispo >= filtroFechaInicio)
+          );
+        }
+      
+        // Si no hay fechas en el filtro, devolver true
+        return true;
+      });
+
+      return isWithinFilters && isAvailableInDateRange;
     });
   }
 

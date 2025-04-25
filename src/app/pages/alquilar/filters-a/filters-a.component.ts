@@ -31,7 +31,9 @@ export class FiltersAComponent {
       transmission: ['Todas las transmisiones'],
       fuel: ['Todos los combustibles'],
       color: ['Todos los colores'],
-      pricePerDay: [0, 1000]
+      pricePerDay: [0, 1000],
+      fechaInicio: null,
+      fechaFin: null
     };
 
     this.filtersChange.emit(this.filters);
