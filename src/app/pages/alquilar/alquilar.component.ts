@@ -21,7 +21,6 @@ export class AlquilarComponent {
   currentPage: number = 1;
   itemsPerPage: number = 21;
   totalPags: number = 0;
-  mostrarCalendarios: boolean = false;
   
   // Todos los vehículos disponibles
   vehicles: {
@@ -193,7 +192,6 @@ export class AlquilarComponent {
 
         // Si hay fechas en el filtro
         if (this.filters.fechaInicio && this.filters.fechaFin) {
-          this.mostrarCalendarios = true;
           const filtroFechaInicio = new Date(this.filters.fechaInicio);
           const filtroFechaFin = new Date(this.filters.fechaFin);
 

@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CalendarStartComponent } from "../../../components/icons/calendar-start/calendar-start.component";
 import { CalendarEndComponent } from "../../../components/icons/calendar-end/calendar-end.component";
-
 @Component({
   selector: 'app-detalles-a',
   imports: [CommonModule, Boton2Component, HeaderAComponent, InfoAComponent, DescripcionAComponent, CalendarCheckIconComponent, CarruselAComponent, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
@@ -24,7 +23,6 @@ export class DetallesAComponent {
   @Input() vehicles: any;
   @Input() vehicle: any;
   @Input() filters: any = {}
-  @Input() mostrarCalendarios: boolean = false;
 
   @Output() close = new EventEmitter();
 
@@ -55,10 +53,11 @@ export class DetallesAComponent {
     }
   }
 
+  showAlert = false;
+  alertMessage = 'Antes de confirmar la reserva de un vehículo debes especificar la fecha de inicio de alquiler y la fecha en la que entregarás el vehículo de vuelta';
+
   reservarVehiculo() {
-    if(! this.mostrarCalendarios) {
-      this.mostrarCalendarios = true;
-    } else if((this.fechaIni != null) && ( this.fechaFin != null)) {
+    if((this.fechaIni != null) && ( this.fechaFin != null)) {
 
       const fechaIniFormateada = this.fechaIni.toLocaleString('es-ES', { dateStyle: 'long'});
       const fechaFinFormateada = this.fechaFin.toLocaleString('es-ES', { dateStyle: 'long'});
@@ -73,7 +72,11 @@ export class DetallesAComponent {
       this.reservasService.agregarReserva(nuevaReserva);
       this.closeModal();
     } else {
-      alert("Debes marcar la fecha de inicio de alquiler y la de fin");
+      this.showAlert = true;
+
+      setTimeout(() => {
+        this.showAlert = false;
+      }, 7000);
     }
   }
 }

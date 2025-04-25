@@ -14,6 +14,7 @@ import { FilterControlAComponent } from './filter-control-a/filter-control-a.com
 export class FiltersAComponent {
   @Input() filters: any = {}
   @Input() currentPage: number = 1;
+  @Input() mostrarCalendarios: boolean = false;
   
   @Output() filtersChange = new EventEmitter<any>();
   @Output() goToPage = new EventEmitter<number>();
@@ -35,6 +36,8 @@ export class FiltersAComponent {
       fechaInicio: null,
       fechaFin: null
     };
+
+    this.mostrarCalendarios = false;
 
     this.filtersChange.emit(this.filters);
   }
