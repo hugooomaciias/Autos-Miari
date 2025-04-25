@@ -1,23 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CarIconComponent } from '../../../../components/icons/car-icon/car-icon.component';
 import { BrandIconComponent } from '../../../../components/icons/brand-icon/brand-icon.component';
 import { TagIconComponent } from '../../../../components/icons/tag-icon/tag-icon.component';
 import { EngineIconComponent } from '../../../../components/icons/engine-icon/engine-icon.component';
 import { FuelIconComponent } from '../../../../components/icons/fuel-icon/fuel-icon.component';
-import { CalendarIconComponent } from '../../../../components/icons/calendar-icon/calendar-icon.component';
 import { ColorIconComponent } from '../../../../components/icons/color-icon/color-icon.component';
 import { EuroBagIconComponent } from "../../../../components/icons/euro-bag-icon/euro-bag-icon.component";
 import { ChevromDownIconComponent } from "../../../../components/icons/chevrom-down-icon/chevrom-down-icon.component";
 import { ChevromRightIconComponent } from "../../../../components/icons/chevrom-right-icon/chevrom-right-icon.component";
-import { KmIconComponent } from "../../../../components/icons/km-icon/km-icon.component";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { CalendarStartComponent } from "../../../../components/icons/calendar-start/calendar-start.component";
+import { CalendarEndComponent } from "../../../../components/icons/calendar-end/calendar-end.component";
 
 @Component({
   selector: 'app-filter-control-a',
-  imports: [CommonModule, FormsModule, EuroBagIconComponent, ChevromDownIconComponent, ChevromRightIconComponent, KmIconComponent],
+  imports: [CommonModule, FormsModule, EuroBagIconComponent, ChevromDownIconComponent, ChevromRightIconComponent, FormsModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
   templateUrl: './filter-control-a.component.html',
-  styleUrl: './filter-control-a.component.scss'
+  styleUrl: './filter-control-a.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class FilterControlAComponent {
   @Input() filters: any = {};
@@ -58,12 +62,6 @@ export class FilterControlAComponent {
       label: 'Tipo de combustible',
       icon: FuelIconComponent,
       options: ['Todos los combustibles', 'Gasolina', 'Diesel', 'Eléctrico', 'Híbrido']
-    },
-    {
-      key: 'year',
-      label: 'Año',
-      icon: CalendarIconComponent,
-      options: ['Todos los años', '2023', '2022', '2021', '2020', '2019', 'Más Antiguo']
     },
     {
       key: 'color',

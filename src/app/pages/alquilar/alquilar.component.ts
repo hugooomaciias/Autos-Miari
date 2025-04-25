@@ -7,6 +7,7 @@ import { HeroAlquilarComponent } from './hero-alquilar/hero-alquilar.component';
 import { FiltersAComponent } from './filters-a/filters-a.component';
 import { ResultHeaderAComponent } from './result-header-a/result-header-a.component';
 import { PaginationAComponent } from './pagination-a/pagination-a.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-alquilar',
@@ -54,7 +55,7 @@ export class AlquilarComponent {
       fuel: 'Gasolina',
       year: '2023',
       color: 'Blanco',
-      price: 9499,
+      price: 250,
       mileage: 90335,
       isNew: true
     },
@@ -73,7 +74,7 @@ export class AlquilarComponent {
       fuel: 'Diesel',
       year: '2022',
       color: 'Blanco',
-      price: 12490,
+      price: 300,
       mileage: 158500,
       isNew: false
     },
@@ -93,7 +94,7 @@ export class AlquilarComponent {
       fuel: 'Gasolina',
       year: '2018',
       color: 'Blanco',
-      price: 9900,
+      price: 200,
       mileage: 12345,
       isNew: true
     }
@@ -106,11 +107,24 @@ export class AlquilarComponent {
     type: ['Todos los tipos'],
     transmission: ['Todas las transmisiones'],
     fuel: ['Todos los combustibles'],
-    year: ['Todos los años'],
     color: ['Todos los colores'],
-    price: [0, 100000],
-    mileage: [0, 400000]
+    pricePerDay: [0, 1000]
   };
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const filtros = {...this.filters};
+
+      if(params['fechaIni']) filtros.brand = [params['fechaIni']];
+      if(params['fechaFin']) filtros.model = [params['fechaFin']];
+      if(params['tipo']) filtros.type = [params['tipo']];
+      if(params['precioPorDia']) filtros.pricePerDay[1] = parseInt(params['precioPorDia']);
+
+      this.updateFilters(filtros);
+    });
+  }
 
   // Cambiar la vista
   setViewType(type: 'grid' | 'list') {
@@ -129,10 +143,8 @@ export class AlquilarComponent {
       type: ['Todos los tipos'],
       transmission: ['Todas las transmisiones'],
       fuel: ['Todos los combustibles'],
-      year: ['Todos los años'],
       color: ['Todos los colores'],
-      price: [0, 100000],
-      mileage: [0, 400000]
+      pricePerDay: [0, 1000]
     };
   }
 
@@ -145,12 +157,9 @@ export class AlquilarComponent {
         (this.filters.type.includes('Todos los tipos') || this.filters.type.includes(vehicle.type)) &&
         (this.filters.transmission.includes('Todas las transmisiones') || this.filters.transmission.includes(vehicle.transmission)) &&
         (this.filters.fuel.includes('Todos los combustibles') || this.filters.fuel.includes(vehicle.fuel)) &&
-        (this.filters.year.includes('Todos los años') || this.filters.year.includes(vehicle.year)) &&
         (this.filters.color.includes('Todos los colores') || this.filters.color.includes(vehicle.color)) &&
-        vehicle.price >= this.filters.price[0] &&
-        vehicle.price <= this.filters.price[1] &&
-        vehicle.mileage >= this.filters.mileage[0] &&
-        vehicle.mileage <= this.filters.mileage[1]
+        vehicle.price >= this.filters.pricePerDay[0] &&
+        vehicle.price <= this.filters.pricePerDay[1]
       );
     });
   }

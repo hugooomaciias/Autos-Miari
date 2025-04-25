@@ -7,24 +7,51 @@ import { Router } from '@angular/router';
 import { BrandIconComponent } from "../../../components/icons/brand-icon/brand-icon.component";
 import { TagIconComponent } from "../../../components/icons/tag-icon/tag-icon.component";
 import { EuroBagIconComponent } from "../../../components/icons/euro-bag-icon/euro-bag-icon.component";
+import { CalendarIconComponent } from "../../../components/icons/calendar-icon/calendar-icon.component";
+import { CarIconComponent } from "../../../components/icons/car-icon/car-icon.component";
 
 @Component({
   selector: 'app-search',
-  imports: [CommonModule, FormsModule, Boton2Component, SearchIconComponent, BrandIconComponent, TagIconComponent, EuroBagIconComponent],
+  imports: [CommonModule, FormsModule, Boton2Component, SearchIconComponent, BrandIconComponent, TagIconComponent, EuroBagIconComponent, CalendarIconComponent, CarIconComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
   activeTab: 'comprar' | 'alquilar' = 'comprar';
 
-  fechaInicio: string = '';
-  fechaFin: string = '';
+  // Comprar
+  marcaSeleccionada: string = '';
+  modeloSeleccionado: string = '';
+  precioIndicado: number = 100000;
+  anoSeleccionado: string = '';
+
+  // Alquilar
+  fechaIniIndicada: string = '';
+  fechaFinIndicada: string = '';
+  tipoSeleccionado: string = '';
+  precioPorDiaIndicado: number = 1000;
 
   constructor(private router: Router) {}
   
-  navigateTo(path: string) {
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
+  buscarComprar() {
+    const filtrosC = {
+      marca: this.marcaSeleccionada,
+      modelo: this.modeloSeleccionado,
+      precio: this.precioIndicado,
+      ano: this.anoSeleccionado
+    };
+
+    this.router.navigate(['comprar'], { queryParams: filtrosC });
+  }
+
+  buscarAlquilar() {
+    const filtrosA = {
+      fechaIni: this.fechaIniIndicada,
+      fechaFin: this.fechaFinIndicada,
+      tipo: this.tipoSeleccionado,
+      precioPorDia: this.precioPorDiaIndicado
+    };
+
+    this.router.navigate(['alquilar'], { queryParams: filtrosA });
   }
 }

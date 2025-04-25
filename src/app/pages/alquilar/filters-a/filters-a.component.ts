@@ -30,10 +30,8 @@ export class FiltersAComponent {
       type: ['Todos los tipos'],
       transmission: ['Todas las transmisiones'],
       fuel: ['Todos los combustibles'],
-      year: ['Todos los años'],
       color: ['Todos los colores'],
-      price: [0, 100000],
-      mileage: [0, 400000]
+      pricePerDay: [0, 1000]
     };
 
     this.filtersChange.emit(this.filters);

@@ -1,28 +1,14 @@
 <!-- Filtro por precio -->
 <div class="mb-4">
-    <div for="brand" class="flex items-center gap-2 text-lg font-medium">
+    <div class="flex items-center gap-2 text-lg font-medium">
         <app-euro-bag-icon></app-euro-bag-icon>
-        Precio
+        Precio por día
     </div>
 
-    <input type="range" min="0" max="200000" step="1000" [(ngModel)]="filters.price[1]" (change)="onFilterChange(); irAPagina(1)" />
+    <input type="range" min="0" max="2000" step="100" [(ngModel)]="filters.pricePerDay[1]" (change)="onFilterChange(); irAPagina(1)" />
     <div class="flex justify-between text-sm text-gray-500 mt-1">
-        <span>0 €</span>
-        <span>{{ filters.price[1] | number:'1.0-0' }} €</span>
-    </div>
-</div>
-
-<!-- Filtro por kilometraje -->
-<div class="mb-4">
-    <div for="brand" class="flex items-center gap-2 text-lg font-medium">
-        <app-km-icon></app-km-icon>
-        Kilometraje
-    </div>
-
-    <input type="range" min="0" max="800000" step="1000" [(ngModel)]="filters.mileage[1]" (change)="onFilterChange(); irAPagina(1)" />
-    <div class="flex justify-between text-sm text-gray-500 mt-1">
-        <span>0 km</span>
-        <span>{{ filters.mileage[1] | number:'1.0-0' }} km</span>
+        <span>0 €/día</span>
+        <span>{{ filters.pricePerDay[1] | number:'1.0-0' }} €/día</span>
     </div>
 </div>
 
@@ -58,3 +44,50 @@
         <div class="w-full h-0.5 bg-black opacity-20 mt-5"></div>
     </div>
 </ng-container>
+
+<!-- Fecha de inicio -->
+<div class="border-t pt-4">
+    <div class="flex justify-between items-center cursor-pointer" (click)="toggle('fechaInicio')">
+        <div class="flex items-center gap-2 text-lg font-medium">
+            <app-calendar-start></app-calendar-start>
+            Fecha de inicio
+        </div>
+    
+        <ng-container *ngIf="expanded['fechaInicio']; else collapsedIcon1">
+            <app-chevrom-down-icon></app-chevrom-down-icon>
+        </ng-container>
+
+        <ng-template #collapsedIcon1>
+            <app-chevrom-right-icon></app-chevrom-right-icon>
+        </ng-template>
+    </div>
+  
+    <div *ngIf="expanded['fechaInicio']" class="mt-3">
+        <mat-calendar [(selected)]="filters.fechaInicio" (selectedChange)="onFilterChange(); irAPagina(1)" class="rounded-xl custom-calendar"></mat-calendar>
+    </div>
+</div>
+
+<div class="w-full h-0.5 bg-black opacity-20 mt-5"></div>
+  
+<!-- Fecha de fin -->
+<div class="border-t pt-4">
+    <div class="flex justify-between items-center cursor-pointer" (click)="toggle('fechaFin')">
+        <div class="flex items-center gap-2 text-lg font-medium">
+            <app-calendar-end></app-calendar-end>
+            Fecha de fin
+        </div>
+    
+        <ng-container *ngIf="expanded['fechaFin']; else collapsedIcon2">
+            <app-chevrom-down-icon></app-chevrom-down-icon>
+        </ng-container>
+
+        <ng-template #collapsedIcon2>
+            <app-chevrom-right-icon></app-chevrom-right-icon>
+        </ng-template>
+    </div>
+  
+    <div *ngIf="expanded['fechaFin']" class="mt-3">
+        <mat-calendar [(selected)]="filters.fechaInicio" (selectedChange)="onFilterChange(); irAPagina(1)" class="rounded-xl custom-calendar"></mat-calendar>
+    </div>
+</div>  
+  

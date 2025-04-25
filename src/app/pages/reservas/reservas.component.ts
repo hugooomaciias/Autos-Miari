@@ -18,7 +18,6 @@ export class ReservasComponent {
 
   ngOnInit(): void {
     this.reservasService.reservas$.subscribe(reservas => {
-      console.log('Reservas recibidas:', reservas);
       this.reservas = reservas;
     })
   }

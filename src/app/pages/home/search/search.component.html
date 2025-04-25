@@ -26,8 +26,9 @@
             <div class="w-full md:w-4/5">
                 <label class="block mb-2 text-lg font-medium">Marca</label>
                 <div class="flex items-center content-center">
-                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
-                        <option class="opacity-80" value="">Selecciona una marca</option>
+                    <select [(ngModel)]="marcaSeleccionada" class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Cualquier marca</option>
+                        <option class="opacity-80" value="Fiat">Fiat</option>
                     </select>
     
                     <span class="absolute pl-3 opacity-50">
@@ -40,8 +41,8 @@
             <div class="w-full md:w-4/5">
                 <label class="block mb-2 text-lg font-medium">Modelo</label>
                 <div class="flex items-center content-center">
-                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
-                        <option class="opacity-80" value="">Selecciona un modelo</option>
+                    <select [(ngModel)]="modeloSeleccionado" class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Cualquier modelo</option>
                     </select>
     
                     <span class="absolute pl-3 opacity-50">
@@ -54,7 +55,7 @@
             <div class="w-full md:w-4/5">
                 <label class="block mb-2 text-lg font-medium">Precio</label>
                 <div class="flex items-center content-center">
-                    <input type="tel" placeholder="Introduce un precio" class="w-full p-[0.65rem] pl-10 rounded-full opacity-80 text-sm border border-black/50" />
+                    <input [(ngModel)]="precioIndicado" type="number" placeholder="Introduce un precio" class="w-full p-[0.65rem] pl-10 rounded-full opacity-80 text-sm border border-black/50" />
     
                     <span class="absolute pl-3 opacity-50">
                         <app-euro-bag-icon currentClass="size-[1.30rem]"></app-euro-bag-icon>
@@ -66,19 +67,19 @@
             <div class="w-full md:w-4/5">
                 <label class="block mb-2 text-lg font-medium">Año</label>
                 <div class="flex items-center content-center">
-                    <select class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
-                        <option class="opacity-80" value="">Selecciona un año</option>
+                    <select [(ngModel)]="anoSeleccionado" class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Cualquier año</option>
                     </select>
     
                     <span class="absolute pl-3 opacity-50">
-                        <app-brand-icon currentClass="size-[1.30rem]"></app-brand-icon>
+                        <app-calendar-icon currentClass="size-[1.30rem]"></app-calendar-icon>
                     </span>
                 </div>
             </div>    
         </div>
 
         <div class="flex justify-center items-center mt-8">
-            <app-boton2 (click)="navigateTo('comprar')">
+            <app-boton2 (click)="buscarComprar()">
                 <app-search-icon></app-search-icon>
                 Buscar vehículos para comprar
             </app-boton2>
@@ -88,51 +89,61 @@
     <div *ngIf="activeTab === 'alquilar'">
         <h2 class="text-2xl font-bold text-center mb-6">Alquila un vehículo</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-6 place-items-start md:place-items-center place-content-center">
-            <!-- Localización -->
-            <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium">Localización</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Cualquier localización</option>
-                    <option value="malaga">Málaga</option>
-                    <option value="almeria">Almería</option>
-                    <option value="sevilla">Sevilla</option>
-                    <option value="madrid">Madrid</option>
-                    <option value="barcelona">Barcelona</option>
-                </select>
-            </div>
-            
             <!-- Fecha de inicio -->
             <div class="w-full md:w-4/5">
-                <label for="fechaInicio" class="text-lg font-medium">Fecha de inicio</label>
-                <input class="bg-transparent rounded-full text-base p-2 py-1 w-full mt-2 border-x border-y cursor-pointer appearance-none"
-                type="date" id="fechaInicio"
-                [(ngModel)]="fechaInicio"/>
+                <label class="block mb-2 text-lg font-medium">Fecha de inicio</label>
+                <div class="flex items-center content-center">
+                    <input [(ngModel)]="fechaIniIndicada" class="w-full p-[0.65rem] rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer"
+                           type="date" id="fechaInicio"
+                    />
+                </div>
             </div>
 
             <!-- Fecha de fin -->
             <div class="w-full md:w-4/5">
-                <label for="fechaFin" class="text-lg font-medium">Fecha de fin</label>
-                <input class="bg-transparent rounded-full text-base p-2 py-1 w-full mt-2 border-x border-y cursor-pointer appearance-none"
-                       type="date" id="fechaFin"
-                       [(ngModel)]="fechaFin"/>
+                <label class="block mb-2 text-lg font-medium">Fecha de fin</label>
+                <div class="flex items-center content-center">
+                    <input [(ngModel)]="fechaFinIndicada" class="w-full p-[0.65rem] rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer"
+                           type="date" id="fechaInicio"
+                    />
+                </div>
             </div>
   
             <!-- Tipo de vehículo -->
             <div class="w-full md:w-4/5">
-                <label class="text-lg font-medium mr-4">Tipo de vehiculo</label>
-                <select class="bg-transparent rounded-full text-base p-2 w-full mt-2 cursor-pointer">
-                    <option value="">Cualquier tipo</option>
-                    <option value="economicos">Económico</option>
-                    <option value="compacto">Compacto</option>
-                    <option value="suv">SUV</option>
-                    <option value="lujoso">Lujoso</option>
-                    <option value="convertible">Convertible</option>
-                </select>
+                <label class="block mb-2 text-lg font-medium">Tipo de vehiculo</label>
+                <div class="flex items-center content-center">
+                    <select [(ngModel)]="tipoSeleccionado" class="w-full p-[0.65rem] pl-10 rounded-full opacity-50 text-sm border border-black/50 bg-transparent cursor-pointer">
+                        <option class="opacity-80" value="">Cualquier tipo</option>
+                        <option value="">Cualquier tipo</option>
+                        <option value="economicos">Económico</option>
+                        <option value="compacto">Compacto</option>
+                        <option value="suv">SUV</option>
+                        <option value="lujoso">Lujoso</option>
+                        <option value="convertible">Convertible</option>
+                    </select>
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-car-icon currentClass="size-[1.30rem]"></app-car-icon>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Precio por día -->
+            <div class="w-full md:w-4/5">
+                <label class="block mb-2 text-lg font-medium">Precio</label>
+                <div class="flex items-center content-center">
+                    <input [(ngModel)]="precioPorDiaIndicado" type="number" placeholder="Introduce un precio" class="w-full p-[0.65rem] pl-10 rounded-full opacity-80 text-sm border border-black/50" />
+    
+                    <span class="absolute pl-3 opacity-50">
+                        <app-euro-bag-icon currentClass="size-[1.30rem]"></app-euro-bag-icon>
+                    </span>
+                </div>
             </div>
         </div>
     
         <div class="flex justify-center mt-8">
-            <app-boton2 (click)="navigateTo('alquilar')">
+            <app-boton2 (click)="buscarAlquilar()">
                 <app-search-icon></app-search-icon>
                 Buscar vehículos para alquilar
             </app-boton2>

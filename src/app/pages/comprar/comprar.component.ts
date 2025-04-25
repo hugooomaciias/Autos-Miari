@@ -7,6 +7,7 @@ import { ResultHeaderCComponent } from "./result-header-c/result-header-c.compon
 import { VehiclesCComponent } from "./vehicles-c/vehicles-c.component";
 import { PaginationCComponent } from "./pagination-c/pagination-c.component";
 import { DetallesComponent } from "./detalles-c/detalles-c.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comprar',
@@ -111,6 +112,21 @@ export class ComprarComponent {
     price: [0, 100000],
     mileage: [0, 400000]
   };
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const filtros = {...this.filters};
+
+      if(params['marca']) filtros.brand = [params['marca']];
+      if(params['modelo']) filtros.model = [params['modelo']];
+      if(params['precio']) filtros.price[1] = parseInt(params['precio']);
+      if(params['ano']) filtros.year = [params['ano']];
+
+      this.updateFilters(filtros);
+    });
+  }
 
   // Cambiar la vista
   setViewType(type: 'grid' | 'list') {
