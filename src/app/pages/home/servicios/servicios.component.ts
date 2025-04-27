@@ -1,22 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BotonComponent } from '../../../components/boton/boton.component';
 import { UsIconComponent } from "../../../components/icons/us-icon/us-icon.component";
 import { CarIcon2Component } from '../../../components/icons/car-icon2/car-icon2.component';
 import { EuroIconComponent } from '../../../components/icons/euro-icon/euro-icon.component';
 import { CalendarAlquilerIconComponent } from '../../../components/icons/calendar-alquiler-icon/calendar-alquiler-icon.component';
 import { HistoryIconComponent } from '../../../components/icons/history-icon/history-icon.component';
 import { SupportIconComponent } from '../../../components/icons/support-icon/support-icon.component';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-servicios',
-  imports: [CommonModule, BotonComponent, UsIconComponent],
+  imports: [RouterModule, CommonModule, UsIconComponent],
   templateUrl: './servicios.component.html',
   styleUrl: './servicios.component.scss'
 })
 export class ServiciosComponent {
-  constructor(private router: Router) {}
   
   services: any[] = [
     {
@@ -46,9 +44,7 @@ export class ServiciosComponent {
     }
   ]
   
-  navigateTo(path: string) {
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

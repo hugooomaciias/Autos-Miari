@@ -7,14 +7,14 @@
         </p>
 
         <div class="flex flex-col md:flex-row justify-center items-center mx-auto mt-8 gap-5 w-2/3">
-            <app-boton2 class="w-full">
+            <a routerLink="" class="boton-secundario w-full" (click)="scrollTop()">
                 <app-phone-icon></app-phone-icon>
                 Haznos una llamada
-            </app-boton2>                        
-            <app-boton3 class="w-full px-4 py-3" (click)="navigateTo('concertar-cita')">
+            </a>
+            <a routerLink="/concertar-cita" class="boton-terciario w-full" (click)="scrollTop()">
                 <app-visit-icon></app-visit-icon>
                 Concertar una visita
-            </app-boton3>
+            </a>
         </div>
     </div>
 </section>

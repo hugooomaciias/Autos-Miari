@@ -1,6 +1,6 @@
 <nav class="hidden md:flex items-center gap-6">
-  <a *ngFor="let link of navItems" [attr.aria-label]="link.label" (click)="navigateTo(link.path)"
-      class="relative block font-semibold px-2 py-2 text-white hover:text-[#ff0030] transition cursor-pointer"
+  <a *ngFor="let link of navItems" [attr.aria-label]="link.label" [routerLink]="link.path" (click)="scrollTop()"
+     class="relative block text-white hover:text-[#ff3131] font-semibold p-2 cursor-pointer no-underline transition-all"
   >
     {{link.title}}
   </a>

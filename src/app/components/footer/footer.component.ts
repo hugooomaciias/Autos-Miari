@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { InstagramIconComponent } from '../../components/icons/instagram-icon/instagram-icon.component';
 import { FacebookIconComponent } from '../../components/icons/facebook-icon/facebook-icon.component';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LocationIconComponent } from "../../components/icons/location-icon/location-icon.component";
 import { PhoneIconComponent } from "../../components/icons/phone-icon/phone-icon.component";
 import { MailIconComponent } from "../../components/icons/mail-icon/mail-icon.component";
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, LocationIconComponent, PhoneIconComponent, MailIconComponent],
+  imports: [RouterModule, CommonModule, LocationIconComponent, PhoneIconComponent, MailIconComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
@@ -86,6 +86,9 @@ export class FooterComponent {
     }
   ];
 
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   navigateTo(path: string) {
     this.router.navigate([path]).then(() => {

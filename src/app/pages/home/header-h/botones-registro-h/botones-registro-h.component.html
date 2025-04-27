@@ -1,4 +1,8 @@
 <div class = "hidden md:flex items-center gap-3">
-  <app-boton class="text-sm" (click)="irAIniciarSesion()">Iniciar sesión</app-boton>
-  <app-boton class="text-sm" (click)="irARegistro()">Registrarse</app-boton>
+  <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" (click)="scrollTop()" [queryParams]="{ tab: 'iniciar-sesion'}">
+    Iniciar sesión
+  </a>
+  <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" (click)="scrollTop()" [queryParams]="{ tab: 'registro'}">
+    Registrate
+  </a>
 </div>

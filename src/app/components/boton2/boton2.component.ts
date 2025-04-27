@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class Boton2Component {
   @Input() class = '';
-  classBase = 'flex items-center justify-center flex-1 gap-3 bg-[#ff3131] hover:bg-[#c80d0d] px-4 py-3 text-base text-white font-semibold rounded-full border-none shadow-lg cursor-pointer transition-all duration-200';
+  classBase = '';
 }

@@ -29,17 +29,4 @@ export class HomeComponent {
   onSlideChange(index: number) {
     this.currentSlide = index;
   }
-
-  constructor(private router: Router) {}
-  navigateTo(path: string) {
-    alert('Se clicka bien')
-
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
-  }
-
-  alertar(msg: string) {
-    alert(msg);
-  }
 }

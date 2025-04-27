@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { SearchIconComponent } from "../../../components/icons/search-icon/search-icon.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { BrandIconComponent } from "../../../components/icons/brand-icon/brand-icon.component";
 import { TagIconComponent } from "../../../components/icons/tag-icon/tag-icon.component";
 import { EuroBagIconComponent } from "../../../components/icons/euro-bag-icon/euro-bag-icon.component";
@@ -16,7 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-search',
-  imports: [CommonModule, FormsModule, Boton2Component, SearchIconComponent, BrandIconComponent, TagIconComponent, EuroBagIconComponent, CalendarIconComponent, CarIconComponent, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule],
+  imports: [RouterModule, CommonModule, FormsModule, SearchIconComponent, BrandIconComponent, TagIconComponent, EuroBagIconComponent, CalendarIconComponent, CarIconComponent, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -36,27 +35,7 @@ export class SearchComponent {
   tipoSeleccionado: string = '';
   precioPorDiaIndicado: number = 1000;
 
-  constructor(private router: Router) {}
-  
-  buscarComprar() {
-    const filtrosC = {
-      marca: this.marcaSeleccionada,
-      modelo: this.modeloSeleccionado,
-      precio: this.precioIndicado,
-      ano: this.anoSeleccionado
-    };
-
-    this.router.navigate(['comprar'], { queryParams: filtrosC });
-  }
-
-  buscarAlquilar() {
-    const filtrosA = {
-      fechaIni: this.fechaIniIndicada,
-      fechaFin: this.fechaFinIndicada,
-      tipo: this.tipoSeleccionado,
-      precioPorDia: this.precioPorDiaIndicado
-    };
-
-    this.router.navigate(['alquilar'], { queryParams: filtrosA });
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

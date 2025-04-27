@@ -5,7 +5,6 @@ import { MailIconComponent } from '../../../components/icons/mail-icon/mail-icon
 import { CommonModule } from '@angular/common';
 import { PhoneIconComponent } from "../../../components/icons/phone-icon/phone-icon.component";
 import { TimeIconComponent } from "../../../components/icons/time-icon/time-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { VisitIconComponent } from "../../../components/icons/visit-icon/visit-icon.component";
 import { CommentIconComponent } from "../../../components/icons/comment-icon/comment-icon.component";
 
@@ -13,7 +12,7 @@ import { CommentIconComponent } from "../../../components/icons/comment-icon/com
 @Component({
   selector: 'app-formulario-v',
   imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, PhoneIconComponent,
-            TimeIconComponent, Boton2Component, VisitIconComponent, CommentIconComponent],
+            TimeIconComponent, VisitIconComponent, CommentIconComponent],
   templateUrl: './formulario-v.component.html',
   styleUrl: './formulario-v.component.scss'
 })
@@ -39,5 +38,9 @@ export class FormularioVComponent {
     if(this.form.valid) {
       console.log(this.form.value);
     }
+  }
+
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

@@ -18,10 +18,10 @@ import { CalendarEndComponent } from "../../../../components/icons/calendar-end/
 
 @Component({
   selector: 'app-filter-control-a',
-  imports: [CommonModule, FormsModule, EuroBagIconComponent, ChevromDownIconComponent, ChevromRightIconComponent, FormsModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
+  imports: [CommonModule, EuroBagIconComponent, ChevromDownIconComponent, ChevromRightIconComponent, FormsModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
   templateUrl: './filter-control-a.component.html',
   styleUrl: './filter-control-a.component.scss',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class FilterControlAComponent {
   @Input() filters: any = {};

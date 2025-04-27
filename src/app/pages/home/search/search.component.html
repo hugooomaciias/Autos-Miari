@@ -79,10 +79,17 @@
         </div>
 
         <div class="flex justify-center items-center mt-8">
-            <app-boton2 (click)="buscarComprar()">
+            <a [routerLink]="['/comprar']" class="boton-secundario" (click)="scrollTop()"
+            [queryParams]="{
+                            marca: marcaSeleccionada,
+                            modelo: modeloSeleccionado,
+                            precio: precioIndicado,
+                            ano: anoSeleccionado
+                        }"
+            >
                 <app-search-icon></app-search-icon>
                 Buscar vehículos para comprar
-            </app-boton2>
+            </a>
         </div>
     </div>
   
@@ -143,10 +150,17 @@
         </div>
     
         <div class="flex justify-center mt-8">
-            <app-boton2 (click)="buscarAlquilar()">
+            <a [routerLink]="['/alquilar']" class="boton-secundario" (click)="scrollTop()"
+               [queryParams]="{
+                                fechaIni: fechaIniIndicada,
+                                fechaFin: fechaFinIndicada,
+                                tipo: tipoSeleccionado,
+                                precioPorDia: precioPorDiaIndicado
+                            }"
+            >
                 <app-search-icon></app-search-icon>
                 Buscar vehículos para alquilar
-            </app-boton2>
+            </a>
         </div>
     </div>
 </section>

@@ -198,7 +198,6 @@ export class ComprarComponent {
   showModal: boolean = false;
   
   openModal(vehicle: any) {
-    console.log('Vehículo recibido:', vehicle);
     this.showModal = true;
     this.selectedVehicle = vehicle;
   }

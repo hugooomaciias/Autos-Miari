@@ -5,10 +5,10 @@
         Precio por día
     </div>
 
-    <input type="range" min="0" max="2000" step="100" [(ngModel)]="filters.pricePerDay[1]" (change)="onFilterChange(); irAPagina(1)" />
+    <input type="range" min="0" max="2000" step="100" [(ngModel)]="filters.price[1]" (change)="onFilterChange(); irAPagina(1)" />
     <div class="flex justify-between text-sm text-gray-500 mt-1">
         <span>0 €/día</span>
-        <span>{{ filters.pricePerDay[1] | number:'1.0-0' }} €/día</span>
+        <span>{{ filters.price[1] | number:'1.0-0' }} €/día</span>
     </div>
 </div>
 
@@ -90,5 +90,4 @@
     <div *ngIf="expanded['fechaFin']" class="mt-3">
         <mat-calendar [(selected)]="filters.fechaFin" (selectedChange)="onFilterChange()" [selected]="filters.fechaFin" [startAt]="filters.fechaFin" class="rounded-xl custom-calendar"></mat-calendar>
     </div>
-</div>  
-  
+</div>

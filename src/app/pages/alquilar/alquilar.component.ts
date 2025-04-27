@@ -1,13 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderComponent } from "../../components/header/header.component";
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { VehiclesAComponent } from './vehicles-a/vehicles-a.component';
 import { DetallesAComponent } from './detalles-a/detalles-a.component';
 import { HeroAlquilarComponent } from './hero-alquilar/hero-alquilar.component';
 import { FiltersAComponent } from './filters-a/filters-a.component';
-import { ResultHeaderAComponent } from './result-header-a/result-header-a.component';
 import { PaginationAComponent } from './pagination-a/pagination-a.component';
-import { ActivatedRoute } from '@angular/router';
+import { ResultHeaderAComponent } from './result-header-a/result-header-a.component';
 
 @Component({
   selector: 'app-alquilar',
@@ -127,7 +127,7 @@ export class AlquilarComponent {
     transmission: ['Todas las transmisiones'],
     fuel: ['Todos los combustibles'],
     color: ['Todos los colores'],
-    pricePerDay: [0, 1000],
+    price: [0, 1000],
     fechaInicio: null,
     fechaFin: null
   };
@@ -140,8 +140,8 @@ export class AlquilarComponent {
 
       if(params['fechaIni']) filtros.fechaInicio = new Date(params['fechaIni']);
       if(params['fechaFin']) filtros.fechaFin = new Date(params['fechaFin']);
+      if(params['precioPorDia']) filtros.price[1] = parseInt(params['precioPorDia']);
       if(params['tipo']) filtros.type = [params['tipo']];
-      if(params['precioPorDia']) filtros.pricePerDay[1] = parseInt(params['precioPorDia']);
 
       this.updateFilters(filtros);
     });
@@ -165,7 +165,7 @@ export class AlquilarComponent {
       transmission: ['Todas las transmisiones'],
       fuel: ['Todos los combustibles'],
       color: ['Todos los colores'],
-      pricePerDay: [0, 1000],
+      price: [0, 1000],
       fechaInicio: null,
       fechaFin: null
     };
@@ -181,8 +181,8 @@ export class AlquilarComponent {
         (this.filters.transmission.includes('Todas las transmisiones') || this.filters.transmission.includes(vehicle.transmission)) &&
         (this.filters.fuel.includes('Todos los combustibles') || this.filters.fuel.includes(vehicle.fuel)) &&
         (this.filters.color.includes('Todos los colores') || this.filters.color.includes(vehicle.color)) &&
-        vehicle.price >= this.filters.pricePerDay[0] &&
-        vehicle.price <= this.filters.pricePerDay[1]
+        vehicle.price >= this.filters.price[0] &&
+        vehicle.price <= this.filters.price[1]
       );
 
       // Comprobar las fechas de disponibilidad
@@ -236,7 +236,6 @@ export class AlquilarComponent {
   showModal: boolean = false;
   
   openModal(vehicle: any) {
-    console.log('Vehículo recibido:', vehicle);
     this.showModal = true;
     this.selectedVehicle = vehicle;
   }

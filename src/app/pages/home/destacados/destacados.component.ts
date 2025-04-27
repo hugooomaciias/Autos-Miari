@@ -1,24 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BotonComponent } from "../../../components/boton/boton.component";
 import { CarIconComponent } from "../../../components/icons/car-icon/car-icon.component";
 import { BotonSliderComponent } from "../../../components/boton-slider/boton-slider.component";
 import { LeftArrowIconComponent } from "../../../components/icons/left-arrow-icon/left-arrow-icon.component";
 import { RigthArrowIconComponent } from '../../../components/icons/right-arrow-icon/rigth-arrow-icon.component';
 import { FavoriteIconComponent } from "../../../components/icons/favorite-icon/favorite-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
-import { Boton3Component } from '../../../components/boton3/boton3.component';
-import { Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-destacados',
-  imports: [CommonModule, BotonComponent, Boton2Component, Boton3Component, BotonSliderComponent, CarIconComponent, LeftArrowIconComponent, RigthArrowIconComponent, FavoriteIconComponent],
+  imports: [RouterLink, CommonModule, BotonSliderComponent, CarIconComponent, LeftArrowIconComponent, RigthArrowIconComponent, FavoriteIconComponent],
   templateUrl: './destacados.component.html',
   styleUrl: './destacados.component.scss'
 })
 export class DestacadosComponent {
-  constructor(private router: Router) {}
-
   @Input() visibleVehicles: any[] = [
     {
       id: '1',
@@ -111,10 +106,8 @@ export class DestacadosComponent {
   getIndicatorsArray(): number[] {
     return Array(this.totalSlides).fill(0).map((_, i) => i);
   }
-  
-  navigateTo(path: string) {
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
+
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
