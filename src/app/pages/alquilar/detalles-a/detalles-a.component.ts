@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { CommonModule } from '@angular/common';
 import { HeaderAComponent } from './header-a/header-a.component';
 import { CarruselAComponent } from './carrusel-a/carrusel-a.component';
@@ -14,7 +13,7 @@ import { CalendarStartComponent } from "../../../components/icons/calendar-start
 import { CalendarEndComponent } from "../../../components/icons/calendar-end/calendar-end.component";
 @Component({
   selector: 'app-detalles-a',
-  imports: [CommonModule, Boton2Component, HeaderAComponent, InfoAComponent, DescripcionAComponent, CalendarCheckIconComponent, CarruselAComponent, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
+  imports: [CommonModule, HeaderAComponent, InfoAComponent, DescripcionAComponent, CalendarCheckIconComponent, CarruselAComponent, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, CalendarStartComponent, CalendarEndComponent],
   templateUrl: './detalles-a.component.html',
   styleUrl: './detalles-a.component.scss',
   encapsulation: ViewEncapsulation.None

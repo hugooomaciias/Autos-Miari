@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Boton2Component } from "../../../../components/boton2/boton2.component";
 import { FavoriteIconComponent } from "../../../../components/icons/favorite-icon/favorite-icon.component";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-card-c',
-  imports: [CommonModule, FavoriteIconComponent, Boton2Component],
+  imports: [CommonModule, FavoriteIconComponent],
   templateUrl: './vehicle-card-c.component.html',
   styleUrl: './vehicle-card-c.component.scss'
 })
@@ -20,14 +18,6 @@ export class VehicleCardCComponent {
 
   onToggleFavorite(vehicleId: string) {
     this.toggleFavorite.emit(vehicleId);
-  }
-
-  constructor(private router: Router) {}
-  
-  navigateTo(path: string) {
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
   }
 
   openModal() {

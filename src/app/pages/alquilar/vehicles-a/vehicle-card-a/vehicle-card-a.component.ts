@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Boton2Component } from "../../../../components/boton2/boton2.component";
 import { FavoriteIconComponent } from "../../../../components/icons/favorite-icon/favorite-icon.component";
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vehicle-card-a',
-  imports: [CommonModule, FavoriteIconComponent, Boton2Component],
+  imports: [CommonModule, FavoriteIconComponent],
   templateUrl: './vehicle-card-a.component.html',
   styleUrl: './vehicle-card-a.component.scss'
 })

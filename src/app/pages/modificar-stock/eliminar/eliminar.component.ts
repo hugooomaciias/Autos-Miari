@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { BrandIconComponent } from "../../../components/icons/brand-icon/brand-icon.component";
 import { TagIconComponent } from "../../../components/icons/tag-icon/tag-icon.component";
 import { EngineIconComponent } from "../../../components/icons/engine-icon/engine-icon.component";
@@ -16,7 +15,7 @@ import { TrashIconComponent } from "../../../components/icons/trash-icon/trash-i
 
 @Component({
   selector: 'app-eliminar',
-  imports: [CommonModule, ReactiveFormsModule, Boton2Component, BrandIconComponent, TagIconComponent, EngineIconComponent, FuelIconComponent, CarIconComponent, ColorIconComponent, CalendarIconComponent, KmIconComponent, EuroBagIconComponent, FinalidadIconComponent, TrashIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, BrandIconComponent, TagIconComponent, EngineIconComponent, FuelIconComponent, CarIconComponent, ColorIconComponent, CalendarIconComponent, KmIconComponent, EuroBagIconComponent, FinalidadIconComponent, TrashIconComponent],
   templateUrl: './eliminar.component.html',
   styleUrl: './eliminar.component.scss'
 })

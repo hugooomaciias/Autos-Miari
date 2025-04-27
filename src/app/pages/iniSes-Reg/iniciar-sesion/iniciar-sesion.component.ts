@@ -4,12 +4,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MailIconComponent } from "../../../components/icons/mail-icon/mail-icon.component";
 import { EyeOpenIconComponent } from "../../../components/icons/eye-open-icon/eye-open-icon.component";
 import { EyeCloseIconComponent } from "../../../components/icons/eye-close-icon/eye-close-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { UserIconComponent } from "../../../components/icons/user-icon/user-icon.component";
 
 @Component({
   selector: 'app-iniciar-sesion',
-  imports: [CommonModule, ReactiveFormsModule, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, Boton2Component, UserIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, UserIconComponent],
   templateUrl: './iniciar-sesion.component.html',
   styleUrl: './iniciar-sesion.component.scss'
 })

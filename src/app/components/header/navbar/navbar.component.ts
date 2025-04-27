@@ -14,37 +14,37 @@ export class NavbarComponent {
     {
       title: "Comprar",
       label: "comprar",
-      path: "comprar",
+      path: "/comprar",
     },
     {
       title: "Alquilar",
       label: "alquilar",
-      path: "alquilar",
+      path: "/alquilar",
     },
     {
       title: "Tasa tu vehículo",
       label: "tasa-tu-coche",
-      path: "tasa-tu-coche",
+      path: "/tasa-tu-coche",
     },
     {
       title: "Localización",
       label: "localizacion",
-      path: "localizacion",
+      path: "/localizacion",
     },
     {
       title: "Contacto",
       label: "contacto",
-      path: "contacto",
+      path: "/contacto",
     },
     {
       title: "Modificar stock",
       label: "modificar-stock",
-      path: "modificar-stock",
+      path: "/modificar-stock",
     },
     {
       title: "Reservas",
       label: "reservas",
-      path: "reservas",
+      path: "/reservas",
     }
   ];
 

@@ -1,17 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Boton3Component } from "../../../components/boton3/boton3.component";
-import { Router } from '@angular/router';
 import { VisitIconComponent } from "../../../components/icons/visit-icon/visit-icon.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-preguntas-frec',
-  imports: [CommonModule, Boton3Component, VisitIconComponent],
+  imports: [RouterModule, CommonModule, VisitIconComponent],
   templateUrl: './preguntas-frec.component.html',
   styleUrl: './preguntas-frec.component.scss'
 })
 export class PreguntasFrecComponent {
-  constructor(private router: Router) {}
 
   frecQuestions: any[] = [
     {
@@ -32,9 +30,7 @@ export class PreguntasFrecComponent {
     },
   ]
   
-  navigateTo(path: string) {
-    this.router.navigate([path]).then(() => {
-      window.scrollTo(0, 0);
-    });
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

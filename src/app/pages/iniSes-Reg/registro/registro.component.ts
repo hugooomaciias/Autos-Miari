@@ -5,12 +5,11 @@ import { PersonIconComponent } from "../../../components/icons/person-icon/perso
 import { MailIconComponent } from "../../../components/icons/mail-icon/mail-icon.component";
 import { EyeOpenIconComponent } from "../../../components/icons/eye-open-icon/eye-open-icon.component";
 import { EyeCloseIconComponent } from "../../../components/icons/eye-close-icon/eye-close-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { UserPlusIconComponent } from "../../../components/icons/user-plus-icon/user-plus-icon.component";
 
 @Component({
   selector: 'app-registro',
-  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, Boton2Component, UserPlusIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, UserPlusIconComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })

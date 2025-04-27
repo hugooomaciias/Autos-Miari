@@ -8,7 +8,6 @@ import { FuelIconComponent } from '../../../components/icons/fuel-icon/fuel-icon
 import { EngineIconComponent } from '../../../components/icons/engine-icon/engine-icon.component';
 import { CommonModule } from '@angular/common';
 import { StarIconComponent } from '../../../components/icons/support-icon/star-icon/star-icon.component';
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { CheckIconComponent } from "../../../components/icons/check-icon/check-icon.component";
 import { DoorIconComponent } from '../../../components/icons/door-icon/door-icon.component';
 import { ChevromDownIconComponent } from "../../../components/icons/chevrom-down-icon/chevrom-down-icon.component";
@@ -18,7 +17,7 @@ type StepKey = 'brand' | 'model' | 'fuel' | 'power' | 'doors' | 'mileage' | 'dat
 
 @Component({
   selector: 'app-formulario-paso-apaso',
-  imports: [CommonModule, ReactiveFormsModule, Boton2Component, CheckIconComponent, ChevromDownIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, CheckIconComponent, ChevromDownIconComponent],
   templateUrl: './formulario-paso-apaso.component.html',
   styleUrl: './formulario-paso-apaso.component.scss'
 })

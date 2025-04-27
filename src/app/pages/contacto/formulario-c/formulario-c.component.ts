@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { PersonIconComponent } from "../../../components/icons/person-icon/person-icon.component";
 import { MailIconComponent } from "../../../components/icons/mail-icon/mail-icon.component";
 import { CommentIconComponent } from "../../../components/icons/comment-icon/comment-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { InfoIconComponent } from "../../../components/icons/info-icon/info-icon.component";
 import { StarIconComponent } from "../../../components/icons/support-icon/star-icon/star-icon.component";
 import { FlagIconComponent } from "../../../components/icons/flag-icon/flag-icon.component";
@@ -12,7 +11,7 @@ import { SendIconComponent } from "../../../components/icons/send-icon/send-icon
 
 @Component({
   selector: 'app-formulario-c',
-  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, CommentIconComponent, Boton2Component, InfoIconComponent, StarIconComponent, FlagIconComponent, SendIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, CommentIconComponent, InfoIconComponent, StarIconComponent, FlagIconComponent, SendIconComponent],
   templateUrl: './formulario-c.component.html',
   styleUrl: './formulario-c.component.scss'
 })
@@ -33,5 +32,9 @@ export class FormularioCComponent {
     if(this.form.valid) {
       console.log(this.form.value);
     }
+  }
+
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

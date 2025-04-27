@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MailIconComponent } from "../../../components/icons/mail-icon/mail-icon.component";
-import { Boton2Component } from "../../../components/boton2/boton2.component";
 import { KeyIconComponent } from "../../../components/icons/key-icon/key-icon.component";
 
 @Component({
   selector: 'app-olvidar-password',
-  imports: [CommonModule, ReactiveFormsModule, MailIconComponent, Boton2Component, KeyIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, MailIconComponent, KeyIconComponent],
   templateUrl: './olvidar-password.component.html',
   styleUrl: './olvidar-password.component.scss'
 })

@@ -22,9 +22,9 @@
             ¿No encuentras lo que buscas? Envía tu pregunta mediante el formulario situado a la izquierda.
         </p>
 
-        <app-boton3 class="mx-auto w-4/6 md:w-1/2 px-4 py-3" (click)="navigateTo('concertar-cita')">
+        <a routerLink="/concertar-cita" class="boton-terciario mx-auto md:w-1/3" (click)="scrollTop()">
             <app-visit-icon></app-visit-icon>
             Concertar una visita
-        </app-boton3>
+        </a>
     </div>
 </div>
