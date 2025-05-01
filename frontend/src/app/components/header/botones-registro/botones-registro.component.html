@@ -1,8 +1,8 @@
 <div class="hidden md:flex items-center gap-3">
-  <a [routerLink]="['/iniSes-Reg']" (click)="scrollTop(); cambiarIni()" [queryParams]="{ tab: 'iniciar-sesion'}" class="boton-principal text-sm" id="noHomeBoton">
+  <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" id="noHomeBoton" (click)="scrollTop()" [queryParams]="{ tab: 'iniciar-sesion'}">
     Iniciar sesión
   </a>
-  <a [routerLink]="['/iniSes-Reg']" (click)="scrollTop(); cambiarReg()" [queryParams]="{ tab: 'registro'}" class="boton-principal text-sm" id="noHomeBoton">
-    Registrate
+  <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" id="noHomeBoton" (click)="scrollTop()" [queryParams]="{ tab: 'registro'}">
+      Registrate
   </a>
 </div>

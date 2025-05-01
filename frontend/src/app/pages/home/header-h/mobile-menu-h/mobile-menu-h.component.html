@@ -1,0 +1,20 @@
+<div class="fixed inset-0 top-[57px] z-40">
+    <div class="flex flex-col items-center justify-center text-center gap-6 bg-white px-4 py-8">
+        <nav>
+            <a *ngFor="let link of navItems" [attr.aria-label]="link.label" [routerLink]="link.path" (click)="scrollTop()"
+                class="relative block text-black hover:text-[#ff3131] font-semibold p-2 cursor-pointer no-underline transition-all"
+            >
+                {{link.title}}
+            </a>
+        </nav>
+
+        <div class="flex flex-col gap-3">
+            <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" (click)="scrollTop()" [queryParams]="{ tab: 'iniciar-sesion'}">
+                Iniciar sesión
+            </a>
+            <a [routerLink]="['/iniSes-Reg']" class="boton-principal text-sm" (click)="scrollTop()" [queryParams]="{ tab: 'registro'}">
+                Registrate
+            </a>
+        </div>
+    </div>
+</div>

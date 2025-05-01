@@ -1,30 +1,36 @@
 <app-header></app-header>
 <app-hero-r></app-hero-r>
 
-<div class="flex flex-col items-center justify-center mt-96">
-    <div *ngIf="reservas.length === 0; else hayReservas" class="bg-white rounded-lg shadow p-8 text-center w-1/3">
+<div class="flex flex-col items-center justify-center mt-96 pt-20 md:pt-12">
+    <div *ngIf="reservas.length === 0; else hayReservas" class="bg-white rounded-lg shadow p-8 text-center md:w-1/3">
         <app-alert-icon></app-alert-icon>
         <h3 class="text-xl font-bold mb-2">Actualmente no hay reservas registradas.</h3>
         <p class="opacity-50 mb-4">Las reservas aparecerán aquí una vez que los usuarios completen el proceso de alquiler.</p>
     </div>
 
     <ng-template #hayReservas>
-        <table class="container mx-auto w-1/2 bg-white shadow-xl rounded-lg border-collapse">
+        <div class="w-full overflow-x-auto">
+          <!-- Eliminamos container y mx-auto para que ocupe todo el ancho disponible -->
+          <table class="min-w-[800px] bg-white shadow-xl rounded-lg border-collapse w-full md:w-1/2 mx-auto">
             <thead class="bg-[#ff3131]">
-                <tr>
-                    <th class="py-2 text-center text-lg text-white border-b">Vehículo</th>
-                    <th class="py-2 text-center text-lg text-white border-b">Reservado desde</th>
-                    <th class="py-2 text-center text-lg text-white border-b">Reservado hasta</th>
-                </tr>
+              <tr>
+                <!-- Usamos min-w-[200px] para cada columna (800px total / 4 columnas) -->
+                <th class="py-2 text-center text-lg text-white border-b min-w-1/4">Vehículo</th>
+                <th class="py-2 text-center text-lg text-white border-b min-w-1/4">Reservado desde</th>
+                <th class="py-2 text-center text-lg text-white border-b min-w-1/4">Reservado hasta</th>
+                <th class="py-2 text-center text-lg text-white border-b min-w-1/4">Usuario</th>
+              </tr>
             </thead>
-
+            
             <tbody>
-                <tr *ngFor="let reserva of reservas">
-                    <td class="px-4 py-2 text-center text-base">{{reserva.nombre}}</td>
-                    <td class="px-4 py-2 text-center text-base">{{reserva.fechaInicio}}</td>
-                    <td class="px-4 py-2 text-center text-base">{{reserva.fechaFin}}</td>
-                </tr>
+              <tr *ngFor="let reserva of reservas">
+                <td class="px-4 py-2 text-center text-base min-w-1/4">{{reserva.nombre}}</td>
+                <td class="px-4 py-2 text-center text-base min-w-1/4">{{reserva.fechaInicio}}</td>
+                <td class="px-4 py-2 text-center text-base min-w-1/4">{{reserva.fechaFin}}</td>
+                <td class="px-4 py-2 text-center text-base min-w-1/4"></td>
+              </tr>
             </tbody>
-        </table>
-    </ng-template>
+          </table>
+        </div>
+      </ng-template>
 </div>

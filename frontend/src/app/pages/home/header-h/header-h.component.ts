@@ -2,14 +2,15 @@ import { Component, HostListener } from '@angular/core';
 import { BotonesRegistroHComponent } from './botones-registro-h/botones-registro-h.component';
 import { LogoHComponent } from './logo-h/logo-h.component';
 import { NavbarHComponent } from './navbar-h/navbar-h.component';
-import { BotonMobileComponent } from "../../../components/boton-mobile/boton-mobile.component";
 import { CommonModule } from '@angular/common';
-import { MobileMenuComponent } from "./mobile-menu/mobile-menu.component";
+import { MobileMenuHComponent } from "./mobile-menu-h/mobile-menu-h.component";
 import { Router } from '@angular/router';
+import { XIconComponent } from "../../../components/mobileIcons/x-icon/x-icon.component";
+import { MenuIconComponent } from "../../../components/mobileIcons/menu-icon/menu-icon.component";
 
 @Component({
   selector: 'app-header-h',
-  imports: [CommonModule, LogoHComponent, NavbarHComponent, BotonesRegistroHComponent, BotonMobileComponent, MobileMenuComponent],
+  imports: [CommonModule, LogoHComponent, NavbarHComponent, BotonesRegistroHComponent, MobileMenuHComponent, XIconComponent, MenuIconComponent],
   templateUrl: './header-h.component.html',
   styleUrl: './header-h.component.scss'
 })

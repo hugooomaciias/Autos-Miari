@@ -1,4 +1,9 @@
-<header [class.bg-gradient-to-r]="scrolled" [class.from-black]="scrolled" [class.to-[#6d7991]]="scrolled" [class.shadow-xl]="scrolled" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header [class.bg-gradient-to-r]="scrolled" [class.from-black]="scrolled" [class.to-[#6d7991]]="scrolled" [class.shadow-xl]="scrolled" [class.transition-all]="scrolled" [class.duration-300]="scrolled"
+        class="fixed top-0 left-0 right-0 z-50"
+        [ngClass]="{
+            'bg-gradient-to-r from-black to-[#6d7991]': isMobileMenuOpen || (! isMobileMenuOpen && scrolled),
+        }"
+>
     <div class="flex items-center justify-between p-4 container mx-auto">
         <app-logo></app-logo>
 
@@ -7,9 +12,19 @@
         <app-botones-registro class="hidden md:block lg:block" (cambiarIniciarSesion)="cambiarIni()" (cambiarRegistro)="cambiarReg()"></app-botones-registro>
 
         <!-- Mobile Menu Toggle -->
-        <app-boton-mobile class="md:hidden" [mobileMenuOpen]="isMobileMenuOpen" (toggleMobileMenu)="toggleMobileMenu()"></app-boton-mobile>
+        <button class="flex items-center justify-center bg-transparent border-none text-white md:hidden" (click)="toggleMobileMenu()">
+            <ng-container *ngIf="isMobileMenuOpen; else menuIcon">
+                <app-x-icon></app-x-icon>
+            </ng-container>
+
+            <ng-template #menuIcon>
+                <app-menu-icon></app-menu-icon>
+            </ng-template>
+        </button>
     </div>
     
     <!-- Mobile Menu -->
-    <app-mobile-menu [mobileMenuOpen]="isMobileMenuOpen"></app-mobile-menu>
+    <div *ngIf="isMobileMenuOpen">
+        <app-mobile-menu></app-mobile-menu>
+    </div>
 </header>

@@ -4,12 +4,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BotonesRegistroComponent } from './botones-registro/botones-registro.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { BotonMobileComponent } from "../boton-mobile/boton-mobile.component";
-import { MobileMenuComponent } from "../../pages/home/header-h/mobile-menu/mobile-menu.component";
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
+import { XIconComponent } from "../mobileIcons/x-icon/x-icon.component";
+import { MenuIconComponent } from "../mobileIcons/menu-icon/menu-icon.component";
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, LogoComponent, NavbarComponent, BotonesRegistroComponent, BotonMobileComponent, MobileMenuComponent],
+  imports: [CommonModule, LogoComponent, NavbarComponent, BotonesRegistroComponent, MobileMenuComponent, XIconComponent, MenuIconComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

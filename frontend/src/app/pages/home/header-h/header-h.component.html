@@ -1,4 +1,9 @@
-<header [class.bg-white]="scrolled" [class.shadow-xl]="scrolled" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-x-hidden">
+<header [class.bg-white]="scrolled" [class.shadow-xl]="scrolled" [class.transition-all]="scrolled" [class.duration-300]="scrolled"
+        class="fixed top-0 left-0 right-0 z-50"
+        [ngClass]="{
+            'bg-white': isMobileMenuOpen || (! isMobileMenuOpen && scrolled),
+        }"
+>
     <div class="flex items-center justify-between p-4 container mx-auto">
         <app-logo-h></app-logo-h>
 
@@ -8,9 +13,19 @@
         <app-botones-registro-h class="hidden md:block lg:block"></app-botones-registro-h>
 
         <!-- Mobile Menu Toggle -->
-        <app-boton-mobile class="md:hidden" [mobileMenuOpen]="isMobileMenuOpen" (toggleMobileMenu)="toggleMobileMenu()"></app-boton-mobile>
+        <button class="flex items-center justify-center bg-transparent border-none text-black md:hidden" (click)="toggleMobileMenu()">
+            <ng-container *ngIf="isMobileMenuOpen; else menuIcon">
+                <app-x-icon></app-x-icon>
+            </ng-container>
+
+            <ng-template #menuIcon>
+                <app-menu-icon></app-menu-icon>
+            </ng-template>
+        </button>
     </div>
 
     <!-- Mobile Menu -->
-    <app-mobile-menu [mobileMenuOpen]="isMobileMenuOpen"></app-mobile-menu>
+    <div *ngIf="isMobileMenuOpen">
+        <app-mobile-menu-h></app-mobile-menu-h>
+    </div>
 </header>
