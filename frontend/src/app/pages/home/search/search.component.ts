@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class SearchComponent {
   activeTab: 'comprar' | 'alquilar' = 'comprar';
+  isMobile: boolean = false;
 
   // Comprar
   marcaSeleccionada: string = '';
@@ -37,5 +38,9 @@ export class SearchComponent {
 
   scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnInit() {
+    this.isMobile = window.innerWidth < 768; // Puedes ajustar el breakpoint
   }
 }

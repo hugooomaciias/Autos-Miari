@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,6 +9,9 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './mobile-menu.component.scss'
 })
 export class MobileMenuComponent {
+  @Output() cambiarIniciarSesion = new EventEmitter<void>();
+  @Output() cambiarRegistro = new EventEmitter<void>();
+
   constructor(private router: Router) {}
 
   navItems = [
@@ -51,5 +54,13 @@ export class MobileMenuComponent {
 
   scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  cambiarIni() {
+    this.cambiarIniciarSesion.emit();
+  }
+
+  cambiarReg() {
+    this.cambiarRegistro.emit();
   }
 }

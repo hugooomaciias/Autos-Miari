@@ -25,6 +25,6 @@
     
     <!-- Mobile Menu -->
     <div *ngIf="isMobileMenuOpen">
-        <app-mobile-menu></app-mobile-menu>
+        <app-mobile-menu (cambiarIniciarSesion)="cambiarIni()" (cambiarRegistro)="cambiarReg()"></app-mobile-menu>
     </div>
 </header>

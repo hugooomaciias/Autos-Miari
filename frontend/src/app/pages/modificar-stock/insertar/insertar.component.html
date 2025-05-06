@@ -1,5 +1,5 @@
 <form [formGroup]="formIns" (ngSubmit)="onSubmitIns()" class="space-y-6 container mx-auto w-2/3">
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <!-- Marca -->
         <div class="relative w-full">
             <label class="block mb-2 font-medium">Marca</label>
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <!-- Transmisión -->
         <div class="relative w-full">
             <label class="block mb-2 font-medium">Tipo de transmisión</label>
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <!-- Tipo de vehículo -->
         <div class="relative w-full">
             <label class="block mb-2 font-medium">Tipo de vehículo</label>
@@ -77,10 +77,10 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <!-- Fecha -->
         <div class="relative w-full">
-            <label class="block mb-2 font-medium">Fecha de matriculación</label>
+            <label class="block mb-2 font-medium">Fecha de mat.</label>
             <div class="flex items-center content-center">
                 <input formControlName="fecha" class="w-full p-[0.65rem] pl-10 rounded-lg opacity-80 text-sm border border-black/50"/>
     
@@ -103,7 +103,7 @@
         </div>
     </div>
 
-    <div class="flex items-center justify-center gap-4">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4">
         <!-- Precio -->
         <div class="relative w-full">
             <label class="block mb-2 font-medium">Precio</label>
@@ -132,6 +132,6 @@
     <!-- Botón -->
     <button type="submit" class="boton-secundario mt-6 mx-auto">
         <app-upload-icon></app-upload-icon>
-        Insertar nuevo vehículo
+        Insertar vehículo
     </button>
 </form>

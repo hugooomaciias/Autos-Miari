@@ -7,16 +7,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { OlvidarPasswordComponent } from "./olvidar-password/olvidar-password.component";
 import { IniciarSesionComponent } from "./iniciar-sesion/iniciar-sesion.component";
 import { RegistroComponent } from "./registro/registro.component";
+import { UserIconComponent } from "../../components/icons/user-icon/user-icon.component";
+import { UserPlusIconComponent } from "../../components/icons/user-plus-icon/user-plus-icon.component";
 
 @Component({
   selector: 'app-iniSes-Reg',
-  imports: [CommonModule, ReactiveFormsModule, HeaderComponent, HeroIniSesComponent, OlvidarPasswordComponent, IniciarSesionComponent, RegistroComponent],
+  imports: [CommonModule, ReactiveFormsModule, HeaderComponent, HeroIniSesComponent, OlvidarPasswordComponent, IniciarSesionComponent, RegistroComponent, UserIconComponent, UserPlusIconComponent],
   templateUrl: './iniSes-Reg.component.html',
   styleUrl: './iniSes-Reg.component.scss'
 })
 export class iniSesRegComponent {
   activeTab: 'iniciar-sesion' | 'registro' | 'olvidarPassword' = 'iniciar-sesion';
   olvidarPassword = true;
+  isMobile: boolean = false; 
   
   constructor(private router: Router, private route: ActivatedRoute) {}
 
@@ -35,6 +38,8 @@ export class iniSesRegComponent {
         this.olvidarPassword = true;
       }
     })
+
+    this.isMobile = window.innerWidth < 768;
   }
   
   irAIniciarSesion() {
