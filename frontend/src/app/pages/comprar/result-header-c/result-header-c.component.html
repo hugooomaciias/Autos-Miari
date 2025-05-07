@@ -6,8 +6,8 @@
         </p>
     </div>
 
-    <div class="flex items-center gap-3">
-        <div class="flex p-1 gap-2">
+    <div class="flex items-center gap-3 w-full md:w-[27%]">
+        <div class="hidden md:flex p-1 gap-2">
             <button aria-label="Grid view" class="p-2 rounded-md border-none cursor-pointer" (click)="setViewType('grid')"
                     [ngClass]="{
                         'text-white bg-[#ff3131] hover:bg-[#c80d0d]': viewType === 'grid',
@@ -27,8 +27,8 @@
             </button>
         </div>
 
-        <div class="relative w-full max-w-xs">
-            <select class="appearance-none bg-white/50 hover:bg-white rounded-md border-none px-3 py-2.5 text-base cursor-pointer">
+        <div class="relative w-full md:max-w-xs">
+            <select class="appearance-none bg-white/50 hover:bg-white rounded-md border-none px-3 py-2.5 w-full text-base cursor-pointer">
                 <option value="featured">Destacados</option>
                 <option value="price-low">Precio (más bajo primero)</option>
                 <option value="price-high">Precio (más alto primero)</option>
