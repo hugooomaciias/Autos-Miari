@@ -233,27 +233,3 @@ html, body { height: 100%; }
   }
 
   /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-
-.filter-switch input {
-  display: none;
-}
-
-.filter-switch .background {
-  transition: left 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#option2:checked ~ .background {
-  left: 20%;
-}
-
-#option1:checked + label[for="option1"] {
-  color: white;
-  width: 100%;
-  left: 0.8rem;
-}
-
-#option2:checked + label[for="option2"] {
-  color: white;
-  width: 100%;
-  left: 1.7rem;
-}
