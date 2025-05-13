@@ -7,79 +7,58 @@
         </p>
     </div>
 
+    <!-- Lista de destacados -->
     <div class="relative">
-        <div class="absolute -left-2 md:-left-16 top-[47.4%] md:top-1/2 transform -translate-y-1/2 z-10">
-            <app-boton-slider (click)="goToPage(currentPage - 1)">
-                <app-left-arrow-icon></app-left-arrow-icon>
-            </app-boton-slider>
-        </div>
-        
-        <!-- Lista de destacados -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-transform duration-500 ease-in-out">
-            <div *ngFor="let vehicle of visibleVehicles | slice: (currentPage * 3) : (currentPage * 3 + 3)" class="bg-white rounded-xl shadow-md overflow-hidden hover:-translate-y-4 transition-all duration-500">
-                <div class="relative">
-                    <img class="w-full h-56 object-cover" [src]="vehicle.image" [alt]="vehicle.name"/>
-                    <button class="absolute top-4 right-4 bg-transparent border-none text-white cursor-pointer hover:scale-110 transition-transform duration-200"
-                            (click)="onToggleFavorite(vehicle.id)"
-                            [attr.aria-label]="favorites.includes(vehicle.id) ? 'Remove from favorites' : 'Add to favorites'"
-                    >
-                        <app-favorite-icon [active]="favorites.includes(vehicle.id)"></app-favorite-icon>
-                    </button>
-                    
-                    <span *ngIf="vehicle.isNew" class="absolute top-4 left-4 bg-[#6d7991] text-white font-semibold px-2 py-1 rounded-full text-xs">New</span>
-                </div>
-        
-                <div class="p-6">
-                    <div class="mb-3 flex justify-between items-start">
-                        <h3 class="font-semibold text-lg">{{ vehicle.name }}</h3>
-                        <p class="font-bold text-lg">{{ vehicle.price }}</p>
-                    </div>
-        
-                    <div class="flex items-center opacity-60 mb-4">
-                        <span class="text-base">{{ vehicle.year }}</span>
-                        <span class="mx-2">•</span>
-                        <span class="text-base">{{ vehicle.type }}</span>
-                    </div>
-        
-                    <div class="grid grid-cols-2 gap-2 mb-5">
-                        <div class="text-base">
-                            <p class="opacity-60">Kilometraje</p>
-                            <p class="font-medium">{{ vehicle.mileage }}</p>
-                        </div>
-        
-                        <div class="text-base">
-                            <p class="opacity-60">Transmisión</p>
-                            <p class="font-medium">{{ vehicle.transmission }}</p>
-                        </div>
-                    </div>
-        
-                    <div class="flex items-center gap-3">
-                        <a routerLink="/comprar" class="boton-secundario w-full" (click)="scrollTop()">
-                            Comprar
-                        </a>
-                        <a routerLink="/alquilar" class="boton-terciario w-full" (click)="scrollTop()">
-                            Alquilar
-                        </a>
-                    </div>
+        <ng-container *ngIf="! isMobile; else mobileFeatured">
+            <div class="block absolute -left-16 top-1/2 transform -translate-y-1/2 z-10">
+                <app-boton-slider (click)="goToPage(currentPage - 1)">
+                    <app-left-arrow-icon></app-left-arrow-icon>
+                </app-boton-slider>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8 transition-all duration-500 ease-in-out">
+                <div *ngFor="let vehicle of visibleVehicles | slice:(currentPage * 3):(currentPage * 3 + 3)"
+                    class="bg-white rounded-xl shadow-md overflow-hidden hover:-translate-y-4 transition-all duration-500 flex-shrink-0 w-auto snap-none static"
+                >
+                    <app-carrusel-vehicle-card [vehicle]="vehicle" [favorites]="favorites" (toggleFavorite)="onToggleFavorite($event)" (top)="scrollTop()"></app-carrusel-vehicle-card>
                 </div>
             </div>
-        </div>
-    
-        <div class="absolute -right-2 md:-right-16 top-[47.4%] md:top-1/2 transform -translate-y-1/2 z-10">
-            <app-boton-slider (click)="goToPage(currentPage + 1)">
-                <app-rigth-arrow-icon></app-rigth-arrow-icon>
-            </app-boton-slider>
-        </div>
+        
+            <div class="block absolute -right-16 top-1/2 transform -translate-y-1/2 z-10">
+                <app-boton-slider (click)="goToPage(currentPage + 1)">
+                    <app-rigth-arrow-icon></app-rigth-arrow-icon>
+                </app-boton-slider>
+            </div>
+        </ng-container>
+
+        <ng-template #mobileFeatured>
+            <div #scrollContainer class="flex grid-cols-3 gap-8 transition-all duration-500 ease-in-out overflow-x-auto snap-x snap-mandatory scroll-smooth" (scroll)="onScroll($event)">
+                <div *ngFor="let vehicle of visibleVehicles; let i = index" class="bg-white rounded-xl shadow-md overflow-hidden flex-shrink-0 w-full snap-start">
+                    <app-carrusel-vehicle-card [vehicle]="vehicle" [favorites]="favorites" (toggleFavorite)="onToggleFavorite($event)" (top)="scrollTop()"></app-carrusel-vehicle-card>
+                </div>
+            </div>
+        </ng-template> 
     </div>
-    
+
     <!-- Indicador de carrusel -->
-    <div class="flex justify-center my-8 md:my-10 gap-2">
-        <button *ngFor="let index of getIndicatorsArray(); let i = index" (click)="goToPage(i)"
-                [class]="currentSlide === i 
-                    ? 'w-8 md:w-10 h-3 md:h-4 rounded-full bg-[#6d7991] border-none transition-all duration-300 cursor-pointer' 
-                    : 'md:w-4 h-3 md:h-4 rounded-full bg-[#6d7991]/40 border-none transition-all duration-300 cursor-pointer'"
-                    [attr.aria-label]="'Go to slide ' + (i + 1)"
-        ></button>
+    <div class="flex justify-center my-8 gap-2">
+        <ng-container *ngIf="isMobile; else noMobile">
+            <button *ngFor="let vehicle of visibleVehicles; let i = index" (click)="goToPage(i)"
+                    [class]="currentSlide === i 
+                        ? 'h-3 rounded-full bg-[#6d7991] border-none transition-all duration-200 cursor-pointer' 
+                        : 'h-3 rounded-full bg-[#6d7991]/40 border-none transition-all duration-200 cursor-pointer'"
+                        [attr.aria-label]="'Go to slide ' + (i + 1)"
+            ></button>
+        </ng-container>
+
+        <ng-template #noMobile>
+            <button *ngFor="let index of getIndicatorsArray(); let i = index" (click)="goToPage(i)"
+                    [class]="currentSlide === i 
+                        ? 'w-10 h-4 rounded-full bg-[#6d7991] border-none transition-all duration-300 cursor-pointer' 
+                        : 'w-4 h-4 rounded-full bg-[#6d7991]/40 border-none transition-all duration-300 cursor-pointer'"
+                        [attr.aria-label]="'Go to slide ' + (i + 1)"
+            ></button>
+        </ng-template>
     </div>
     
     <div class="flex flex-col md:flex-row items-center justify-center gap-6">

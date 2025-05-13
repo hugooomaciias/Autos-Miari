@@ -4,4 +4,4 @@
 <app-destacados [favorites]="favorites" [totalSlides]="totalSlides" [currentSlide]="currentSlide"
                 (toggleFavorite)="onToggleFavorite($event)" (slideChange)="onSlideChange($event)">
 </app-destacados>
-<app-servicios></app-servicios>
+<app-servicios [currentSlide]="currentSlide"></app-servicios>

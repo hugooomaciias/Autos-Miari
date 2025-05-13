@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { UsIconComponent } from "../../../components/icons/us-icon/us-icon.component";
 import { CarIcon2Component } from '../../../components/icons/car-icon2/car-icon2.component';
 import { EuroIconComponent } from '../../../components/icons/euro-icon/euro-icon.component';
@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './servicios.component.scss'
 })
 export class ServiciosComponent {
-  
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
   services: any[] = [
     {
       icon: CarIcon2Component,
@@ -43,8 +44,34 @@ export class ServiciosComponent {
       description: "Nuestro equipo de atención al cliente está disponible las 24 horas del día para ayudarle."
     }
   ]
+
+  isMobile: boolean = false;
+  currentPage: number = 0;
+
+  @Input() currentSlide: number = 0;
+
+  @Output() slideChange = new EventEmitter<number>();
   
+  goToPage(page: number) {
+    if (page >= 0 && page * 3 < this.services.length) {
+      this.currentPage = page;
+    }
+    this.slideChange.emit(this.currentPage);
+  }
+
+  onScroll(event: Event): void {
+    const container = this.scrollContainer.nativeElement;
+    const scrollLeft = container.scrollLeft;
+    const width = container.offsetWidth;
+
+    this.currentSlide = Math.round(scrollLeft / width);
+  }
+
   scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnInit() {
+    this.isMobile = window.innerWidth < 768; // Puedes ajustar el breakpoint
   }
 }

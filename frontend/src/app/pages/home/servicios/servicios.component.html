@@ -7,15 +7,41 @@
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 md:mb-14">
-        <div *ngFor="let service of services" class="bg-white p-8 rounded-xl border border-border/40 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
-            <div class="flex items-center justify-center mx-auto bg-[#6d7991] p-1 rounded-full size-16 text-white">
-                <ng-container *ngComponentOutlet="service.icon"></ng-container>
+    <ng-container *ngIf="!isMobile; else mobileServices">
+        <div class="grid grid-cols-3 gap-8 mb-14">
+            <div *ngFor="let service of services" class="bg-white p-8 rounded-xl border border-border/40 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500">
+                <div class="flex items-center justify-center mx-auto bg-[#6d7991] p-1 rounded-full size-16 text-white">
+                    <ng-container *ngComponentOutlet="service.icon"></ng-container>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">{{service.title}}</h3>
+                <p class="text-lg opacity-50">{{service.description}}</p>
             </div>
-            <h3 class="text-xl font-semibold mb-3">{{service.title}}</h3>
-            <p class="text-lg opacity-50">{{service.description}}</p>
         </div>
-    </div>
+    </ng-container>
+
+    <ng-template #mobileServices>
+        <div #scrollContainer class="flex grid-cols-3 gap-8 transition-all duration-500 ease-in-out overflow-x-auto snap-x snap-mandatory scroll-smooth" (scroll)="onScroll($event)">
+            <div *ngFor="let service of services; let i = index" class="bg-white p-8 rounded-xl border border-border/40 text-center shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-500 overflow-hidden flex-shrink-0 w-full snap-start">
+                <div class="flex items-center justify-center mx-auto bg-[#6d7991] p-1 rounded-full size-16 text-white">
+                    <ng-container *ngComponentOutlet="service.icon"></ng-container>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">{{service.title}}</h3>
+                <p class="text-lg opacity-50">{{service.description}}</p>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Indicador de carrusel -->
+    <ng-container *ngIf="isMobile">
+        <div class="flex justify-center my-8 gap-2">
+            <button *ngFor="let service of services; let i = index" (click)="goToPage(i)"
+                    [class]="currentSlide === i 
+                        ? 'h-3 rounded-full bg-[#6d7991] border-none transition-all duration-200 cursor-pointer' 
+                        : 'h-3 rounded-full bg-[#6d7991]/40 border-none transition-all duration-200 cursor-pointer'"
+                        [attr.aria-label]="'Go to slide ' + (i + 1)"
+            ></button>
+        </div>
+    </ng-container>
 
     <div class="flex items-center justify-center">
         <a routerLink="/sobre-nosotros" class="boton-principal text-lg" (click)="scrollTop()">

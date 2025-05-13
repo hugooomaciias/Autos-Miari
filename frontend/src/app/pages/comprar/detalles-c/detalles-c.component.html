@@ -1,12 +1,10 @@
 <div class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50" (click)="closeModal()">
-    <div class="container bg-white rounded-lg shadow-lg py-6 px-8 h-5/6 w-[40%] overflow-y-auto" (click)="$event.stopPropagation()">
+    <div class="container mx-auto bg-white md:rounded-lg shadow-lg py-6 px-8 h-full md:h-5/6 w-full md:w-[40%] overflow-y-auto" (click)="$event.stopPropagation()">
         <!-- Encabezado del modal -->
         <app-header-c [vehicle]="vehicle" (close)="closeModal()"></app-header-c>
         
-        
         <!-- Carrusel de imágenes -->
         <app-carrusel-c [vehicle]="vehicle" [vehicles]="vehicles"></app-carrusel-c>
-          
 
         <!-- Detalles del vehículo -->
         <app-info-c [vehicle]="vehicle"></app-info-c>
@@ -14,7 +12,7 @@
         <!-- Descripción del vehículo -->
         <app-descripcion-c></app-descripcion-c>
 
-        <a class="boton-secundario w-1/3 mx-auto">
+        <a class="boton-secundario md:w-1/3 mx-auto my-6">
             <app-cart-icon></app-cart-icon>
             Comprar vehículo
         </a>

@@ -239,12 +239,27 @@ html, body { height: 100%; }
 /* Hover en switch */
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.boton:focus::after, .boton:hover::after {
-  width: 15%;
-  left: 42.5%;
+.switchSearch:focus::after, .switchSearch:hover::after {
+  width: 13%;
+  left: 43.5%;
 }
 
-.boton::after {
+.switchModify:focus::after, .switchModify:hover::after {
+  width: 87%;
+  left: 6.5%;
+}
+
+.switchSignIn:focus::after, .switchSignIn:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
+.switchSignUp:focus::after, .switchSignUp:hover::after {
+  width: 50%;
+  left: 25%;
+}
+
+.switchSearch::after, .switchModify::after, .switchSignIn::after, .switchSignUp::after {
   content: "";
   pointer-events: none;
   left: 50%;
@@ -259,3 +274,8 @@ html, body { height: 100%; }
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.scroll-inertial {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}

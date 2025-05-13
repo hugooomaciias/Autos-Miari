@@ -2,9 +2,9 @@
     <div class="relative flex justify-center bg-[#6d7991]/70 rounded-full p-3 mb-6 mx-5 gap-4 ">
         <button (click)="activeTab = 'comprar'" class="rounded-full p-2 w-1/2 border-none text-lg text-white font-semibold transition-all"
                 [ngClass]="{
-                    'bg-[#6d7991] transition-all duration-700': activeTab === 'comprar',
-                    'bg-transparent hover:scale-100 cursor-pointer transition-all duration-300': activeTab !== 'comprar',
-                    'boton': activeTab !== 'comprar'
+                    'relative bg-[#6d7991] transition-all duration-700': activeTab === 'comprar',
+                    'relative bg-transparent cursor-pointer transition-all duration-300': activeTab !== 'comprar',
+                    'switchSearch': activeTab !== 'comprar'
                 }"
         >
             Comprar
@@ -12,10 +12,10 @@
 
         <button (click)="activeTab = 'alquilar'" class="rounded-full p-2 w-1/2 border-none text-lg text-white font-semibold transition-all"
                 [ngClass]="{
-                    'bg-[#6d7991]/100 transition-all duration-700': activeTab === 'alquilar',
-                    'bg-transparent hover:scale-100 cursor-pointer transition-all duration-300': activeTab !== 'alquilar',
-                    'boton': activeTab !== 'alquilar'
-                }"
+                    'relative bg-[#6d7991]/100 transition-all duration-700': activeTab === 'alquilar',
+                    'relative bg-transparent cursor-pointer transition-all duration-300': activeTab !== 'alquilar',
+                    'switchSearch': activeTab !== 'alquilar'
+                }"   
         >
             Alquilar
         </button>

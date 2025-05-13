@@ -1,19 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { CarIconComponent } from "../../../components/icons/car-icon/car-icon.component";
 import { BotonSliderComponent } from "../../../components/boton-slider/boton-slider.component";
 import { LeftArrowIconComponent } from "../../../components/icons/left-arrow-icon/left-arrow-icon.component";
 import { RigthArrowIconComponent } from '../../../components/icons/right-arrow-icon/rigth-arrow-icon.component';
-import { FavoriteIconComponent } from "../../../components/icons/favorite-icon/favorite-icon.component";
 import { RouterLink } from '@angular/router';
+import { CarruselVehicleCardComponent } from "./carruselVehiclstacados/carrusel-vehicle-card/carrusel-vehicle-card.component";
 
 @Component({
   selector: 'app-destacados',
-  imports: [RouterLink, CommonModule, BotonSliderComponent, CarIconComponent, LeftArrowIconComponent, RigthArrowIconComponent, FavoriteIconComponent],
+  imports: [RouterLink, CommonModule, BotonSliderComponent, CarIconComponent, LeftArrowIconComponent, RigthArrowIconComponent, CarruselVehicleCardComponent],
   templateUrl: './destacados.component.html',
   styleUrl: './destacados.component.scss'
 })
 export class DestacadosComponent {
+  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+
   @Input() visibleVehicles: any[] = [
     {
       id: '1',
@@ -42,7 +44,7 @@ export class DestacadosComponent {
       price: '9.900 €',
       year: '2018',
       type: 'Gasolina',
-      mileage: '12,345 mi',
+      mileage: '12,345 km',
       transmission: 'Manual',
       image: '/imagenes/volkswagen-polo.jpg',
       isNew: true
@@ -53,7 +55,7 @@ export class DestacadosComponent {
       price: '9.900 €',
       year: '2018',
       type: 'Gasolina',
-      mileage: '12,345 mi',
+      mileage: '12,345 km',
       transmission: 'Manual',
       image: '/imagenes/volkswagen-polo.jpg',
       isNew: true
@@ -64,7 +66,7 @@ export class DestacadosComponent {
       price: '9.900 €',
       year: '2018',
       type: 'Gasolina',
-      mileage: '12,345 mi',
+      mileage: '12,345 km',
       transmission: 'Manual',
       image: '/imagenes/volkswagen-polo.jpg',
       isNew: true
@@ -75,7 +77,7 @@ export class DestacadosComponent {
       price: '9.900 €',
       year: '2018',
       type: 'Gasolina',
-      mileage: '12,345 mi',
+      mileage: '12,345 km',
       transmission: 'Manual',
       image: '/imagenes/volkswagen-polo.jpg',
       isNew: true
@@ -83,6 +85,7 @@ export class DestacadosComponent {
   ];
 
   currentPage: number = 0;
+  isMobile: boolean = false;
 
   @Input() favorites: string[] = [];
 
@@ -109,5 +112,24 @@ export class DestacadosComponent {
 
   scrollTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  onScroll(event: Event): void {
+    const container = this.scrollContainer.nativeElement;
+    const scrollLeft = container.scrollLeft;
+    const width = container.offsetWidth;
+
+    this.currentSlide = Math.round(scrollLeft / width);
+  }
+
+  scrollToIndex(index: number): void {
+    const container = this.scrollContainer.nativeElement;
+    const width = container.offsetWidth;
+
+    container.scrollTo({ left: index * width, behavior: 'smooth' });
+  }
+
+  ngOnInit() {
+    this.isMobile = window.innerWidth < 768; // Puedes ajustar el breakpoint
   }
 }
