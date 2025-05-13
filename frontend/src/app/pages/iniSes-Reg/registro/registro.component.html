@@ -29,7 +29,7 @@
         <div class="flex items-center content-center">
             <input [type]="mostrarPassword ? 'text' : 'password'" formControlName="pass" placeholder="Contraseña" class="w-full p-[0.65rem] rounded-lg opacity-80 text-sm border border-black/50"/>
             
-            <span class="absolute right-3 opacity-50 cursor-pointer" (click)="mostrarPassword = ! mostrarPassword">
+            <span class="absolute right-3 cursor-pointer" (click)="mostrarPassword = ! mostrarPassword">
                 <ng-container *ngIf="mostrarPassword; else ocultarPassword" class="bg-red-500">
                     <app-eye-open-icon></app-eye-open-icon>
                 </ng-container>
@@ -39,6 +39,18 @@
                 </ng-template>
             </span>
         </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-3">
+        <a>
+            <app-google-icon></app-google-icon>
+        </a>
+        <a>
+            <app-apple-icon></app-apple-icon>
+        </a>
+        <a>
+            <app-facebook-auth-icon></app-facebook-auth-icon>
+        </a>
     </div>
 
     <!-- Botón -->

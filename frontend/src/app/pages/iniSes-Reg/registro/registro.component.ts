@@ -6,10 +6,13 @@ import { MailIconComponent } from "../../../components/icons/mail-icon/mail-icon
 import { EyeOpenIconComponent } from "../../../components/icons/eye-open-icon/eye-open-icon.component";
 import { EyeCloseIconComponent } from "../../../components/icons/eye-close-icon/eye-close-icon.component";
 import { UserPlusIconComponent } from "../../../components/icons/user-plus-icon/user-plus-icon.component";
+import { GoogleIconComponent } from "../../../components/icons/google-icon/google-icon.component";
+import { AppleIconComponent } from "../../../components/icons/apple-icon/apple-icon.component";
+import { FacebookAuthIconComponent } from "../../../components/icons/facebook-auth-icon/facebook-auth-icon.component";
 
 @Component({
   selector: 'app-registro',
-  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, UserPlusIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, PersonIconComponent, MailIconComponent, EyeOpenIconComponent, EyeCloseIconComponent, UserPlusIconComponent, GoogleIconComponent, AppleIconComponent, FacebookAuthIconComponent],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })

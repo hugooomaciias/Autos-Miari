@@ -15,19 +15,19 @@ import { ModificarStockComponent } from './pages/modificar-stock/modificar-stock
 import { ReservasComponent } from './pages/reservas/reservas.component';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'comprar', component: ComprarComponent },
-    { path: 'alquilar', component: AlquilarComponent },
-    { path: 'tasa-tu-coche', component: TasaTuCocheComponent },
-    { path: 'localizacion', component: LocalizacionComponent },
-    { path: 'contacto', component: ContactoComponent },
-    { path: 'privacidad', component: PrivacyComponent },
-    { path: 'aviso-legal', component: AvisoLegalComponent },
-    { path: 'cookies', component: CookiesComponent },
-    { path: 'sobre-nosotros', component: SobreNosotrosComponent },
-    { path: 'concertar-cita', component: ConcertarCitaComponent },
-    { path: 'iniSes-Reg', component: iniSesRegComponent },
-    { path: 'modificar-stock', component: ModificarStockComponent },
-    { path: 'reservas', component: ReservasComponent },
-    { path: '**', redirectTo: 'home', pathMatch: 'full' }
+    { path: 'home', component: HomeComponent, data: { title: 'Inicio | Autos Miari'} },
+    { path: 'comprar', component: ComprarComponent, data: { title: 'Comprar | Autos Miari'} },
+    { path: 'alquilar', component: AlquilarComponent, data: { title: 'Alquilar | Autos Miari'} },
+    { path: 'tasa-tu-coche', component: TasaTuCocheComponent, data: { title: 'Tasa tu vehículo | Autos Miari'} },
+    { path: 'localizacion', component: LocalizacionComponent, data: { title: 'Localización | Autos Miari'} },
+    { path: 'contacto', component: ContactoComponent, data: { title: 'Contacto | Autos Miari'} },
+    { path: 'privacidad', component: PrivacyComponent, data: { title: 'Política de privacidad | Autos Miari'} },
+    { path: 'aviso-legal', component: AvisoLegalComponent, data: { title: 'Aviso legal | Autos Miari'} },
+    { path: 'cookies', component: CookiesComponent, data: { title: 'Política de cookies | Autos Miari'} },
+    { path: 'sobre-nosotros', component: SobreNosotrosComponent, data: { title: 'Sobre nosotros | Autos Miari'} },
+    { path: 'concertar-cita', component: ConcertarCitaComponent, data: { title: 'Concertar cita | Autos Miari'} },
+    { path: 'iniSes-Reg', component: iniSesRegComponent, data: { title: 'Autenticación | Autos Miari'} },
+    { path: 'modificar-stock', component: ModificarStockComponent, data: { title: 'Modificar stock | Autos Miari'} },
+    { path: 'reservas', component: ReservasComponent, data: { title: 'Reservas | Autos Miari'} },
+    { path: '**', redirectTo: 'home', pathMatch: 'full', data: { title: 'Inicio | Autos Miari'} }
 ];
